@@ -18,7 +18,7 @@ export async function validateClientFile(path,expectedRepo){
 const arg=process.argv[2]||"help";
 if(arg==="inventory"){
   validateInventory(inventory);
-  if(inventory.repositories.length!==58)throw new Error("2026-10-20 inventory must preserve 58 eligible projects until explicitly reconciled");
+  if(inventory.repositories.length<58)throw new Error("Inventory regression: fewer than 58 previously eligible owner repositories");
   console.log("Eligible projects:",inventory.repositories.length);
   console.log("Excluded:",inventory.excluded.map(x=>x.repository).join(", "));
   console.log("Provider candidates:",known.size);

@@ -28,3 +28,37 @@ jobs:
             if(new Set(p.units.map(x=>x.id)).size!==p.units.length)process.exit(1);
             if(!p.units.every(x=>Array.isArray(x.prs)&&Array.isArray(x.dependsOn)&&x.origin))process.exit(1);
           '
+      - name: Validate and exercise SQLite / Cloudflare D1 telemetry schema
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import sqlite3
+          conn=sqlite3.connect(':memory:')
+          conn.executescript(Path('db/sqlite/001_init.sql').read_text())
+          expected={'ddm_repositories','ddm_services','ddm_providers',
+                    'ddm_deployments','ddm_observations','ddm_usage_samples',
+                    'ddm_pricing','ddm_recommendations','ddm_reports'}
+          found={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+          assert expected <= found
+          conn.execute("INSERT INTO ddm_repositories(repo) VALUES('neophilism/Boardroom')")
+          conn.execute("INSERT INTO ddm_services(id,repo,display_name) VALUES('test','neophilism/Boardroom','Boardroom')")
+          conn.execute("INSERT INTO ddm_providers(id,display_name,category,policy) VALUES('netlify','Netlify','serverless','free-hard-limit')")
+          conn.execute("INSERT INTO ddm_deployments(id,service_id,provider_id,origin,ready_path) VALUES('a','test','netlify','https://example.net','/api/ready')")
+          conn.execute("INSERT INTO ddm_observations(deployment_id,readiness_ok) VALUES('a',1)")
+          assert conn.execute("SELECT last_readiness FROM ddm_deployment_latest WHERE id='a'").fetchone()[0] == 1
+          conn.execute("UPDATE ddm_deployments SET active=1 WHERE id='a'")
+          conn.execute("INSERT INTO ddm_deployments(id,service_id,provider_id,origin,ready_path) VALUES('b','test','netlify','https://other.example.net','/api/ready')")
+          try:
+              conn.execute("UPDATE ddm_deployments SET active=1 WHERE id='b'")
+              raise AssertionError('Concurrent active origins were allowed')
+          except sqlite3.IntegrityError:
+              pass
+          PY
+      - name: Verify static-report generator against the real 23-service inventory
+        run: |
+          npm run report:build
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const p=JSON.parse(fs.readFileSync("site/data/portfolio-snapshot.json","utf8"));
+            if(p.eligible_repositories!==58||p.suspended_legacy_services!==23||p.free_resource_candidates<60||p.verified_live_deployments!==0)process.exit(1);
+          '
