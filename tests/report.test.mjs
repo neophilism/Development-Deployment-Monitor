@@ -10,6 +10,10 @@ test("Portfolio report stays honest about all suspended Render apps",()=>{
  assert.equal(d.services.length,23);
  assert(d.free_resource_candidates>=60);
  assert.equal(d.verified_live_deployments,0);
+ assert(d.services.every(s=>s.capacity_assumptions_unverified===true));
+ assert(d.services.filter(s=>s.provisional_one_host_allocation==="oracle-e2-micro").length<=1);
+ assert(d.services.filter(s=>s.provisional_one_host_allocation==="deno-deploy-free").length<=10);
+ assert(!d.services.some(s=>["render-web-free","northflank-sandbox","koyeb-free"].includes(s.provisional_one_host_allocation)));
  assert(d.services.every(s=>s.verified_live_deployment===null&&s.status==="suspended-on-render"));
  const cost=reportMarkdown(d);
  assert.match(cost,/NOT a budget/);

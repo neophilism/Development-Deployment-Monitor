@@ -38,7 +38,7 @@
 
 1. In the Cloudflare Free account create a D1 Free database `development-deployment-monitor`. Record its database ID.
 2. Link this repo to your own machine or a protected CI environment. In `wrangler.toml` replace `REPLACE_WITH_CREATED_FREE_D1_ID` with the D1 ID. Do not commit account tokens.
-3. Execute `npx wrangler d1 execute development-deployment-monitor --remote --file=db/sqlite/001_init.sql`; then seed only non-sensitive catalog/service IDs. Set `DDM_READ_TOKEN` with `npx wrangler secret put DDM_READ_TOKEN`, 32+ random characters.
+3. Execute `npx wrangler d1 execute development-deployment-monitor --remote --file=db/sqlite/001_init.sql` and then `npx wrangler d1 execute development-deployment-monitor --remote --file=db/sqlite/002_seed_inventory.sql`. The second script inserts all 58 repo IDs, 62 candidates and 23 historically suspended services as **not active**, never overwriting live rows. Generate it from source with `npm run db:seed:generate`. Never seed app credentials or private database URLs. Set `DDM_READ_TOKEN` with `npx wrangler secret put DDM_READ_TOKEN`, 32+ random characters.
 4. Deploy `npx wrangler deploy`. Keep the Worker/D1 account on Free; verify `/api/health`, then protect `/api/report` with the bearer token. A GitHub source checkout or merged PR is not proof of a deployed Worker.
 5. Register real production/preview URLs only after security checks. DDM cron does nothing to unknown or unapproved URLs. Connect UptimeRobot for independent external quorum.
 6. Run a controlled host migration of **one** service, including secrets and signed webhook/OAuth callbacks. Confirm feature-level behavior. Do not attach multiple writable hosts to the same DB without fenced single-writer coordination.

@@ -49,11 +49,14 @@ export function reportMarkdown(d){
  "",
  "## Free provider recommendation by Render deployment",
  "",
- "| Deployment | Current status | Candidate free hosts (not provisioned) | Action |",
- "| --- | --- | --- | --- |",
+ "| Deployment | Current status | Provisional single host (not provisioned) | Ranked alternative hosts (not provisioned) | Action |",
+ "| --- | --- | --- | --- | --- |",
  ...d.services.map(x=>"| "+x.name+" | "+x.status+" | "+
-  (x.ranked_free_options.length?x.ranked_free_options.slice(0,5).join(", "):"unclassified")+" | "+
+  (x.provisional_one_host_allocation??"no free slot with known cap")+" | "+
+  (x.ranked_free_options.length?x.ranked_free_options.filter(p=>p!==x.provisional_one_host_allocation).slice(0,5).join(", "):"unclassified")+" | "+
   x.next_action+" |"),
+ "",
+ "Provisional only: published app-count caps are account-wide, but available CPU, RAM, bandwidth and credits are **not** verified. Free tier capacity cannot be assumed for live business use.",
  "",
  "## Preliminary paid-service sensitivity (NOT a budget)",
  "",
