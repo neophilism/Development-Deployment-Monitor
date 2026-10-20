@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/neophilism/Development-Deployment-Monitor/blob/main/schemas/deployment-contract.schema.json",
+  "title": "Development Deployment Monitor per-repository contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "repository",
+    "kind",
+    "monitoring",
+    "budget",
+    "failover",
+    "deployments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "repository": {
+      "type": "string",
+      "pattern": "^neophilism/[A-Za-z0-9_.-]+$"
+    },
+    "kind": {
+      "enum": [
+        "unclassified",
+        "web-app",
+        "api",
+        "worker",
+        "static-site",
+        "library",
+        "research",
+        "infrastructure",
+        "job",
+        "control-plane"
+      ]
+    },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "inventory",
+            "active"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "monthly_usd_max",
+        "allow_billable_fallback"
+      ],
+      "properties": {
+        "monthly_usd_max": {
+          "type": "number",
+          "const": 0
+        },
+        "allow_billable_fallback": {
+          "const": false
+        }
+      }
+    },
+    "failover": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "stateful",
+        "writer_fencing"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "disabled",
+            "observe-only",
+            "manual",
+            "auto-verified"
+          ]
+        },
+        "stateful": {
+          "type": "boolean"
+        },
+        "writer_fencing": {
+          "type": "boolean"
+        },
+        "router": {
+          "enum": [
+            "none",
+            "verified-external"
+          ]
+        },
+        "stable_origin": {
+          "type": "string",
+          "format": "uri"
+        },
+        "runbook": {
+          "type": "string"
+        }
+      }
+    },
+    "deployments": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "provider",
+          "origin",
+          "ready_path",
+          "expected_status",
+          "role",
+          "ready_json"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string",
+            "format": "uri"
+          },
+          "ready_path": {
+            "type": "string",
+            "pattern": "^/[^?#]*$"
+          },
+          "expected_status": {
+            "type": "integer",
+            "minimum": 200,
+            "maximum": 299
+          },
+          "role": {
+            "enum": [
+              "primary",
+              "standby"
+            ]
+          },
+          "ready_json": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "release_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "region": {
+            "type": "string"
+          },
+          "preprovisioned": {
+            "type": "boolean"
+          },
+          "warm": {
+            "type": "boolean"
+          },
+          "quota_verified": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    }
+  }
+}

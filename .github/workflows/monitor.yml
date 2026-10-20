@@ -1,0 +1,28 @@
+name: Portfolio deployment availability (read-only)
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub cron is best effort, can run late, and is NOT sub-minute failover.
+    - cron: '*/5 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: ddm-portfolio-scan
+  cancel-in-progress: true
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read registered source contracts and probe centrally approved origins
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node src/cli.mjs scan
+      - name: Always disclose scan limitations
+        if: always()
+        run: |
+          echo 'GitHub schedules are best effort; this read-only job cannot provision or switch hosting.' >> "$GITHUB_STEP_SUMMARY"

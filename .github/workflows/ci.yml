@@ -1,0 +1,30 @@
+name: DDM contract and policy CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ddm-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: npm run inventory:check
+      - name: Verify canonical PR registry count and immutable IDs
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const p=JSON.parse(fs.readFileSync("registry/prs.json","utf8"));
+            if(p.repository!=="neophilism/Development-Deployment-Monitor"||p.schemaVersion!==1||p.plannedPrCount!==p.units.length)process.exit(1);
+            if(new Set(p.units.map(x=>x.id)).size!==p.units.length)process.exit(1);
+            if(!p.units.every(x=>Array.isArray(x.prs)&&Array.isArray(x.dependsOn)&&x.origin))process.exit(1);
+          '

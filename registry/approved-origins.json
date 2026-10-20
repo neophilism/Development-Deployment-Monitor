@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "approvals": [],
+  "note": "Public HTTPS origins enter this list only after explicit review of exact repository, provider, release and safe read-only readiness path; no customer secrets. DDM never probes remote client-defined hosts until approved here."
+}

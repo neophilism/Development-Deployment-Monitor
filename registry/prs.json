@@ -1,0 +1,977 @@
+{
+  "schemaVersion": 1,
+  "repository": "neophilism/Development-Deployment-Monitor",
+  "title": "Development Deployment Monitor",
+  "roadmapVersion": 1,
+  "planVerified": true,
+  "plannedPrCount": 50,
+  "observedAt": "2026-10-20T19:37:36Z",
+  "sourceFiles": [
+    "docs/ARCHITECTURE.md",
+    "docs/DEVELOPMENT_PLAN.md",
+    "docs/INTEGRATION.md",
+    "AGENTS.md"
+  ],
+  "units": [
+    {
+      "id": "DDM-001",
+      "title": "Repository inventory and four-oldest exclusion lock",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [],
+      "scope": [
+        "Repository inventory and four-oldest exclusion lock"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-002",
+      "title": "Shared PR registry and agent constraints",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-001"
+      ],
+      "scope": [
+        "Shared PR registry and agent constraints"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-003",
+      "title": "Per-repository deployment contract schema",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-001"
+      ],
+      "scope": [
+        "Per-repository deployment contract schema"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-004",
+      "title": "Provider capability and zero-cost risk catalog",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-001"
+      ],
+      "scope": [
+        "Provider capability and zero-cost risk catalog"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-005",
+      "title": "Local contract validator and CI",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-003",
+        "DDM-004"
+      ],
+      "scope": [
+        "Local contract validator and CI"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-006",
+      "title": "Approval-only HTTPS target registry",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-003"
+      ],
+      "scope": [
+        "Approval-only HTTPS target registry"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-007",
+      "title": "Read-only readiness probing with exact response checks",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-005",
+        "DDM-006"
+      ],
+      "scope": [
+        "Read-only readiness probing with exact response checks"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-008",
+      "title": "Hardened failover policy planner, default non-executing",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-007"
+      ],
+      "scope": [
+        "Hardened failover policy planner, default non-executing"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-009",
+      "title": "Central read-only GitHub Actions scanning and reusable CI",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Foundation",
+      "dependsOn": [
+        "DDM-005",
+        "DDM-007"
+      ],
+      "scope": [
+        "Central read-only GitHub Actions scanning and reusable CI"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-010",
+      "title": "Integrate all eligible 58 repositories, no deployment assumed",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Enrollment",
+      "dependsOn": [
+        "DDM-003",
+        "DDM-009"
+      ],
+      "scope": [
+        "Integrate all eligible 58 repositories, no deployment assumed"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-011",
+      "title": "Detect repository types automatically without classifying empty stubs as apps",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Enrollment",
+      "dependsOn": [
+        "DDM-010"
+      ],
+      "scope": [
+        "Detect repository types automatically without classifying empty stubs as apps"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-012",
+      "title": "Incremental future GitHub-repository discovery and exclusion enforcement",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Enrollment",
+      "dependsOn": [
+        "DDM-011"
+      ],
+      "scope": [
+        "Incremental future GitHub-repository discovery and exclusion enforcement"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-013",
+      "title": "Test source manifest signature, immutable ref and GitHub App credentials",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Trust",
+      "dependsOn": [
+        "DDM-010"
+      ],
+      "scope": [
+        "Test source manifest signature, immutable ref and GitHub App credentials"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-014",
+      "title": "Independent multi-region probes and signed quorum evidence",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Monitoring",
+      "dependsOn": [
+        "DDM-007"
+      ],
+      "scope": [
+        "Independent multi-region probes and signed quorum evidence"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-015",
+      "title": "Durable provider outage ledger with deduplication",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Monitoring",
+      "dependsOn": [
+        "DDM-014"
+      ],
+      "scope": [
+        "Durable provider outage ledger with deduplication"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-016",
+      "title": "Health hysteresis, cooldown and correlated provider failures",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Monitoring",
+      "dependsOn": [
+        "DDM-015"
+      ],
+      "scope": [
+        "Health hysteresis, cooldown and correlated provider failures"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-017",
+      "title": "Provider quota and shared free-account budget telemetry",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Cost",
+      "dependsOn": [
+        "DDM-004"
+      ],
+      "scope": [
+        "Provider quota and shared free-account budget telemetry"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-018",
+      "title": "Hard zero-dollar spend enforcer and paid actuator interlock",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Cost",
+      "dependsOn": [
+        "DDM-017"
+      ],
+      "scope": [
+        "Hard zero-dollar spend enforcer and paid actuator interlock"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-019",
+      "title": "Sensitive config and secret references in secure vaults",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Trust",
+      "dependsOn": [
+        "DDM-013"
+      ],
+      "scope": [
+        "Sensitive config and secret references in secure vaults"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-020",
+      "title": "Authenticated, replay-resistant provider status webhooks",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Monitoring",
+      "dependsOn": [
+        "DDM-015"
+      ],
+      "scope": [
+        "Authenticated, replay-resistant provider status webhooks"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-021",
+      "title": "Guarded deployment adapter contract and audit trail",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-018",
+        "DDM-019"
+      ],
+      "scope": [
+        "Guarded deployment adapter contract and audit trail"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-022",
+      "title": "Stable-domain provider-neutral traffic router design",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Routing",
+      "dependsOn": [
+        "DDM-016"
+      ],
+      "scope": [
+        "Stable-domain provider-neutral traffic router design"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-023",
+      "title": "Cloudflare Worker free request-level routing prototype",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Routing",
+      "dependsOn": [
+        "DDM-022"
+      ],
+      "scope": [
+        "Cloudflare Worker free request-level routing prototype"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-024",
+      "title": "Independent backup controller to remove primary watchdog SPOF",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Routing",
+      "dependsOn": [
+        "DDM-023"
+      ],
+      "scope": [
+        "Independent backup controller to remove primary watchdog SPOF"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-025",
+      "title": "Atomic compare-and-swap promotion controller",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Routing",
+      "dependsOn": [
+        "DDM-015",
+        "DDM-022"
+      ],
+      "scope": [
+        "Atomic compare-and-swap promotion controller"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-026",
+      "title": "Single-writer database lease and fencing SDK",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Stateful",
+      "dependsOn": [
+        "DDM-025"
+      ],
+      "scope": [
+        "Single-writer database lease and fencing SDK"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-027",
+      "title": "Stateful API authorization, CSRF and OAuth origin validation",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Stateful",
+      "dependsOn": [
+        "DDM-026"
+      ],
+      "scope": [
+        "Stateful API authorization, CSRF and OAuth origin validation"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-028",
+      "title": "GitHub OCI/Actions reusable immutable build adapter",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "GitHub OCI/Actions reusable immutable build adapter"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-029",
+      "title": "Netlify Free deployment integration and quota guard",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-028"
+      ],
+      "scope": [
+        "Netlify Free deployment integration and quota guard"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-030",
+      "title": "Deno Deploy Free deployment integration and quota guard",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-028"
+      ],
+      "scope": [
+        "Deno Deploy Free deployment integration and quota guard"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-031",
+      "title": "Oracle Always Free VM deployment integration and capacity guard",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-028"
+      ],
+      "scope": [
+        "Oracle Always Free VM deployment integration and capacity guard"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-032",
+      "title": "Cloudflare Workers/Pages deployment and static adapter",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Cloudflare Workers/Pages deployment and static adapter"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-033",
+      "title": "Render Free instance-hours adapter and outage detection",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Render Free instance-hours adapter and outage detection"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-034",
+      "title": "Koyeb Free single-service capacity adapter",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P2",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Koyeb Free single-service capacity adapter"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-035",
+      "title": "Northflank free sandbox verified adapter",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P2",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Northflank free sandbox verified adapter"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-036",
+      "title": "GitHub Pages / Firebase / DigitalOcean static-only adapters",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P2",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "GitHub Pages / Firebase / DigitalOcean static-only adapters"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-037",
+      "title": "AWS Lambda/GCP Cloud Run/Azure Container Apps cost-risk deny adapters",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P2",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-018",
+        "DDM-021"
+      ],
+      "scope": [
+        "AWS Lambda/GCP Cloud Run/Azure Container Apps cost-risk deny adapters"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-038",
+      "title": "Trial/commercial-only restrictions for Vercel/Railway/Fly/HF Spaces",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P2",
+      "phase": "Providers",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Trial/commercial-only restrictions for Vercel/Railway/Fly/HF Spaces"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-039",
+      "title": "Central dashboard inventory, health, quotas and revisions",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Experience",
+      "dependsOn": [
+        "DDM-015"
+      ],
+      "scope": [
+        "Central dashboard inventory, health, quotas and revisions"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-040",
+      "title": "Incident feed, alerts and owner-action integration with Boardroom",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Experience",
+      "dependsOn": [
+        "DDM-039"
+      ],
+      "scope": [
+        "Incident feed, alerts and owner-action integration with Boardroom"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-041",
+      "title": "Engine Room read-only deployment health feed",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Experience",
+      "dependsOn": [
+        "DDM-039"
+      ],
+      "scope": [
+        "Engine Room read-only deployment health feed"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-042",
+      "title": "Portable release artifacts, secrets checklist and restore dry run",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Release",
+      "dependsOn": [
+        "DDM-021"
+      ],
+      "scope": [
+        "Portable release artifacts, secrets checklist and restore dry run"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-043",
+      "title": "Safe failover and failback drill orchestrator",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Release",
+      "dependsOn": [
+        "DDM-025",
+        "DDM-026",
+        "DDM-042"
+      ],
+      "scope": [
+        "Safe failover and failback drill orchestrator"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-044",
+      "title": "Independent TLS, webhooks, auth and end-to-end availability acceptance",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Release",
+      "dependsOn": [
+        "DDM-043"
+      ],
+      "scope": [
+        "Independent TLS, webhooks, auth and end-to-end availability acceptance"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-045",
+      "title": "Canary rollout to Boardroom, rehearsal then sole active host",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-043",
+        "DDM-044"
+      ],
+      "scope": [
+        "Canary rollout to Boardroom, rehearsal then sole active host"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-046",
+      "title": "Canary rollout to Engine Room without competing with other agent",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-041",
+        "DDM-044"
+      ],
+      "scope": [
+        "Canary rollout to Engine Room without competing with other agent"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-047",
+      "title": "Rollout group: Galinsky-2028, Our-Jam, NFT Minting Console",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P0",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-044"
+      ],
+      "scope": [
+        "Rollout group: Galinsky-2028, Our-Jam, NFT Minting Console"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-048",
+      "title": "Portfolio-wide gradual deployment support and provider cap quotas",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-047"
+      ],
+      "scope": [
+        "Portfolio-wide gradual deployment support and provider cap quotas"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-049",
+      "title": "Automated on-call emergency fallback with explicit time-to-recovery SLOs",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-048"
+      ],
+      "scope": [
+        "Automated on-call emergency fallback with explicit time-to-recovery SLOs"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    },
+    {
+      "id": "DDM-050",
+      "title": "Production chaos/partial outage, provider and DNS failure tests",
+      "origin": "owner-request-2026-10-20",
+      "prs": [],
+      "priority": "P1",
+      "phase": "Rollout",
+      "dependsOn": [
+        "DDM-049"
+      ],
+      "scope": [
+        "Production chaos/partial outage, provider and DNS failure tests"
+      ],
+      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "verification": [],
+      "contributingPrs": [],
+      "externalDependencies": [],
+      "externalPrerequisites": []
+    }
+  ],
+  "pullRequests": []
+}
