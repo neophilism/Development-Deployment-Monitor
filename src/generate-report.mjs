@@ -1,15 +1,20 @@
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {fileURLToPath} from "node:url";
 import {resolve} from "node:path";
-import {hostCandidates} from "./placement.mjs";
+import {hostCandidates,allocatePortfolio} from "./placement.mjs";
 import {scenarioForecast} from "./forecast.mjs";
 
 const root=new URL("../",import.meta.url);
 const read=async path=>JSON.parse(await readFile(new URL(path,root),"utf8"));
 export function generatePreview(inventory,resources,registry){
+ const allocation=allocatePortfolio(inventory.workloads,resources);
+ const assignments=new Map(allocation.entries.map(x=>[x.deployment_id,x]));
  const services=inventory.workloads.map(w=>{
    const matches=hostCandidates(w,resources).filter(p=>p.eligible);
+   const assignment=assignments.get(w.deployment_id);
    return {id:w.deployment_id,name:w.name,repository:w.repository,
+     provisional_one_host_allocation:assignment?.recommendation??null,
+     capacity_assumptions_unverified:true,
      status:"suspended-on-render",classification:w.workload_class,
      ranked_free_options:matches.slice(0,8).map(p=>p.provider_id),
      account_guard_verified:false,verified_live_deployment:null,
@@ -34,7 +39,7 @@ export function generatePreview(inventory,resources,registry){
    estimation_confidence:"hypothetical_unit_costs_only",
    services,resources:resources.resources,
    notes:["No Render replacement is counted as deployed without a real readiness observation.",
-     "Provider ranking is provisional and ignores unconnected account quotas.",
+     "Provider ranking is provisional and respects published free app limits, but actual account credits and resource capacities are unverified.",
      "A free provider must be compatible with commercial use and must block any overage billing.",
      "The paid range covers only 23 web-container slots and excludes databases, GPU and other costs."]};
 }
@@ -49,11 +54,14 @@ export function reportMarkdown(d){
  "",
  "## Free provider recommendation by Render deployment",
  "",
- "| Deployment | Current status | Candidate free hosts (not provisioned) | Action |",
- "| --- | --- | --- | --- |",
+ "| Deployment | Current status | Provisional single host (not provisioned) | Ranked alternative hosts (not provisioned) | Action |",
+ "| --- | --- | --- | --- | --- |",
  ...d.services.map(x=>"| "+x.name+" | "+x.status+" | "+
-  (x.ranked_free_options.length?x.ranked_free_options.slice(0,5).join(", "):"unclassified")+" | "+
+  (x.provisional_one_host_allocation??"no free slot with known cap")+" | "+
+  (x.ranked_free_options.length?x.ranked_free_options.filter(p=>p!==x.provisional_one_host_allocation).slice(0,5).join(", "):"unclassified")+" | "+
   x.next_action+" |"),
+ "",
+ "Provisional only: published app-count caps are account-wide, but available CPU, RAM, bandwidth and credits are **not** verified. Free tier capacity cannot be assumed for live business use.",
  "",
  "## Preliminary paid-service sensitivity (NOT a budget)",
  "",

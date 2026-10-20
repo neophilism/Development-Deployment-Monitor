@@ -10,7 +10,7 @@ Portfolio-wide **free-resource optimizer, verified deployment watcher and future
 - [23 suspended services](registry/render-services-2026-10-20.json) with conservative workload classification, provisional individually ranked free-host alternatives and zero recorded successful replacements.
 - [Host ranking engine](src/placement.mjs) with commercial-use, resource compatibility, always-on, shared quota, paid-overage and verified account restrictions.
 - [Paid forecast model](src/forecast.mjs), explicit about missing usage data. [Historical sample report](reports/PRELIMINARY.md) is **not** an actual quote or approved spending.
-- [Database schema](db/sqlite/001_init.sql) for services, providers, cost/revision history, uptime, quota samples, incidents, failovers and recommendation scores.
+- [Database schema and idempotent historical seed](db/sqlite/001_init.sql) ([seed](db/sqlite/002_seed_inventory.sql)) for services, providers, cost/revision history, uptime, quota samples, incidents, failovers and recommendation scores.
 - [Cloudflare Worker + D1 monitor](workers/ddm/src/index.mjs) with five-minute free cron, protected `/api/report` and safe external readiness polling; [live report UI](site/index.html) refreshes once per minute after a verified deployment. This is code, **not** a connected or running worker.
 - [New-repository discovery](src/discover.mjs) for future source repositories, with scope-restricted GitHub App enrollment PRs only when separately authorized.
 
@@ -31,6 +31,7 @@ Every deployment has a preferred primary and a dynamic fallback ranking. **Do no
 npm test
 npm run inventory:check
 npm run report:build
+npm run db:seed:generate
 npm run discover:check
 ```
 

@@ -12,6 +12,7 @@
     "inventory:check": "node src/cli.mjs inventory",
     "monitor:scan": "node src/cli.mjs scan",
     "report:build": "node src/generate-report.mjs",
-    "discover:check": "node src/discover.mjs"
+    "discover:check": "node src/discover.mjs",
+    "db:seed:generate": "node src/seed-inventory.mjs"
   }
 }

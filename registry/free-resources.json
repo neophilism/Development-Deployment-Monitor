@@ -10,7 +10,10 @@
     "Account quotas and commercial eligibility are per account, not per project; real provider billing data must be connected.",
     "Do not count trial credits as perpetual zero-cost capacity.",
     "Static hosts cannot replace authenticated API backends.",
-    "Host selection must exclude providers with paid overage or unknown payment guard under zero-spend policy."
+    "Host selection must exclude providers with paid overage or unknown payment guard under zero-spend policy.",
+    "Northflank and Koyeb require payment methods even to use developer free services; do not recommend as zero-risk ready capacity until account/cost guard confirmed.",
+    "published_account_app_cap is only a theoretical per-account cap; no provider account is verified connected. Render web and Oracle A1 have zero current known available slots.",
+    "Railway Free receives only $1 shared credit/month. Allocator conservatively reserves at most one small intermittent app; no 24/7 capacity is guaranteed."
   ],
   "resources": [
     {
@@ -32,7 +35,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "cloudflare-workers",
@@ -54,7 +60,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "cloudflare-worker-assets",
@@ -75,7 +84,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "netlify-free",
@@ -92,14 +104,17 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "300 shared monthly credits, hard cutoff; deployment and compute consume credits",
+      "notes": "300 *shared* monthly credits with hard cutoff and no recharge; capacity depends on builds, traffic, bandwidth and functions; no guaranteed 24/7 Node process.",
       "docs_url": "https://www.netlify.com/pricing/",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "deno-deploy-free",
@@ -116,14 +131,18 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "10 active apps, 1M requests/month, 20GiB monthly egress, CPU/memory limits",
+      "notes": "Free usage advertised up to 10 apps, 1M requests and 20GiB egress/mo, but unverified organizations have restricted Free limits until payment-card verification.",
       "docs_url": "https://deno.com/deploy/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 10,
+      "signup_requires_card": false,
+      "production_suitable": true,
+      "full_free_allowance_requires_card_verification": true
     },
     {
       "id": "render-static-free",
@@ -144,7 +163,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "render-web-free",
@@ -159,14 +181,17 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "750 shared instance hours/month; account exhausted in October 2026",
+      "notes": "All 23 web services suspended after shared 750 hours exhausted; zero usable web capacity on current workspace until quota reset, not an available fallback.",
       "docs_url": "https://render.com/docs/free",
       "verified_connected": false,
       "cost_guard_verified": false,
-      "available_capacity": null,
+      "available_capacity": 0,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 0,
+      "signup_requires_card": false,
+      "production_suitable": false
     },
     {
       "id": "northflank-sandbox",
@@ -183,14 +208,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "Two always-on services, one DB and two cron jobs; sandbox terms apply",
+      "notes": "Two free always-on developer Sandbox services; payment method required for creation and provider says not for production. Do not rank as usable before account/card/cost guard verified.",
       "docs_url": "https://northflank.com/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 2,
+      "signup_requires_card": true,
+      "production_suitable": false
     },
     {
       "id": "koyeb-free",
@@ -204,14 +232,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "One 512MB/0.1vCPU free web instance/org, sleep; credit card validation",
+      "notes": "One free 512MB/0.1vCPU web service/org, scales to zero after 1h idle. Payment card validation mandatory; not for production.",
       "docs_url": "https://www.koyeb.com/docs/reference/instances",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": true,
+      "production_suitable": false
     },
     {
       "id": "oracle-e2-micro",
@@ -227,14 +258,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "One existing 1GB VM, shared limits and capacity; home region",
+      "notes": "One previously created 1GB E2.1.Micro VM; may run multiple tiny processes ONLY when verified RAM/CPU and isolation allow. No SSH deployment access verified.",
       "docs_url": "https://docs.oracle.com/iaas/Content/FreeTier/freetier.htm",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "oracle-a1",
@@ -250,14 +284,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "ARM quota up to 4 OCPU/24GB aggregate on eligible plans, capacity may be unavailable",
+      "notes": "No A1 capacity was previously available in existing account; treat as zero slots until a real Always Free instance exists.",
       "docs_url": "https://docs.oracle.com/iaas/Content/FreeTier/freetier.htm",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 0,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "gcp-e2-micro",
@@ -279,7 +316,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-cloud-run",
@@ -302,7 +342,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "aws-lambda",
@@ -323,7 +366,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "azure-functions",
@@ -344,7 +390,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "vercel-hobby",
@@ -366,7 +415,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "personal-only",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "railway-free",
@@ -380,14 +432,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "After trial account has around $1 shared monthly credit; feasibility requires quota verification",
+      "notes": "Free account has only $1 of shared, non-rollover compute credit per month after trial; a single demo app can exhaust it. This is not reliable always-on capacity.",
       "docs_url": "https://railway.com/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "digitalocean-static",
@@ -407,7 +462,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-pages",
@@ -427,7 +485,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "restricted",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": false
     },
     {
       "id": "gitlab-pages",
@@ -447,7 +508,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "firebase-hosting",
@@ -468,7 +532,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-router",
@@ -490,7 +557,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-actions-public",
@@ -512,7 +582,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "northflank-cron",
@@ -532,7 +605,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-cron",
@@ -552,7 +628,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-free-postgres",
@@ -573,7 +652,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-d1",
@@ -594,7 +676,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "turso-free",
@@ -615,7 +700,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "supabase-free",
@@ -637,7 +725,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "mongodb-atlas-m0",
@@ -657,7 +748,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "firebase-firestore-spark",
@@ -677,7 +771,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "oracle-autonomous-free",
@@ -697,7 +794,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-kv",
@@ -717,7 +817,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "deno-kv-free",
@@ -737,7 +840,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "upstash-redis-free",
@@ -758,7 +864,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "upstash-qstash-free",
@@ -779,7 +888,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-queues",
@@ -799,7 +911,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-r2",
@@ -820,7 +935,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "backblaze-b2",
@@ -841,7 +959,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-object-storage",
@@ -861,7 +982,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "supabase-storage",
@@ -881,7 +1005,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "oracle-object-storage",
@@ -901,7 +1028,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-cloud-storage",
@@ -921,7 +1051,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudinary-free",
@@ -942,7 +1075,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "imagekit-free",
@@ -962,7 +1098,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "huggingface-spaces-cpu",
@@ -983,7 +1122,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "kaggle-notebooks",
@@ -1003,7 +1145,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-colab-free",
@@ -1023,7 +1168,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "modal-free-credits",
@@ -1044,7 +1192,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-ghcr",
@@ -1064,7 +1215,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "circleci-free",
@@ -1084,7 +1238,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "uptimerobot-free",
@@ -1105,7 +1262,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "better-stack-free",
@@ -1126,7 +1286,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "personal-only",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "grafana-cloud-free",
@@ -1147,7 +1310,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "sentry-free",
@@ -1168,7 +1334,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "posthog-free",
@@ -1188,7 +1357,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-dns-free",
@@ -1209,7 +1381,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-turnstile",
@@ -1229,7 +1404,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "resend-free",
@@ -1249,7 +1427,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "brevo-free",
@@ -1269,7 +1450,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "clerk-free",
@@ -1290,7 +1474,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-auth-free",
@@ -1310,7 +1497,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     }
   ]
 }
