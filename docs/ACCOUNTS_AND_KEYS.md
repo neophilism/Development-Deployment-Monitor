@@ -47,3 +47,14 @@
 ## Privacy and invoice controls
 
 Cloudflare Worker report API is token-protected, uses D1, and never returns secrets. Do not configure a dashboard worker with real private data on an open static URL. Do not enable auto-recharge, paid instance sizes, trials with automatic conversions, overage billing, or provider accounts whose free terms forbid your business applications. The report page refreshes every minute when connected; monitoring cron runs on a five-minute best-effort schedule and cannot guarantee instantaneous failover.
+
+## Easiest deployment route: GitHub protected Free environment
+
+The repository includes the manually triggered workflow [Deploy DDM on Cloudflare Workers Free and D1 Free](../.github/workflows/deploy-cloudflare.yml). After creating your **Cloudflare Workers Free** account and one `development-deployment-monitor` D1 Free database:
+
+1. In the DDM GitHub repository, open **Settings → Environments → New environment**, name it `ddm-free`. Add four secrets there: `CLOUDFLARE_API_TOKEN` (scoped to the Worker/D1 resources), `CLOUDFLARE_ACCOUNT_ID`, `DDM_D1_DATABASE_ID` (the database UUID), and `DDM_READ_TOKEN` (independently generated random 32+ character token).
+2. In **Settings → Secrets and variables → Actions → Variables**, add repository variable `DDM_FREE_PLAN_VERIFIED=true` **only after confirming** the Cloudflare account is on Workers Free rather than Workers Paid. Optionally supply `DDM_PRODUCTION_ORIGIN=https://<confirmed>.workers.dev` for strict smoke tests; never guess its hostname.
+3. Use **Actions → Deploy DDM on Cloudflare Workers Free and D1 Free → Run workflow**. It validates the repository, applies the D1 schema and seed without overwriting existing rows, deploys the Worker, configures the protected report token, and verifies HTTP security when the origin is known.
+4. Confirm the Worker is shown on Cloudflare **Workers Free**. Test the private report from your own browser using `DDM_READ_TOKEN` (enter into the site's form; never paste it into a GitHub issue or ChatGPT). DDM remains **read-only** and will not provision any client apps without separate approved provider connections.
+
+This workflow creates **no provider account or database**; it requires the owner-created D1 Free database. The protected secrets are made available to a manually invoked GitHub Actions environment, not public PRs. Do not activate this workflow before Free eligibility is verified.

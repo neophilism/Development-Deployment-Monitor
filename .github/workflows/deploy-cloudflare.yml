@@ -1,0 +1,89 @@
+name: Deploy DDM on Cloudflare Workers Free and D1 Free
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ddm-free-production-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    # Explicit opt-in after owner verifies FREE (not pay-as-you-go) in dashboard.
+    if: vars.DDM_FREE_PLAN_VERIFIED == 'true'
+    runs-on: ubuntu-latest
+    environment: ddm-free
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DDM_D1_DATABASE_ID: ${{ secrets.DDM_D1_DATABASE_ID }}
+      DDM_READ_TOKEN: ${{ secrets.DDM_READ_TOKEN }}
+      DDM_PRODUCTION_ORIGIN: ${{ vars.DDM_PRODUCTION_ORIGIN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reject missing credentials and invalid D1 database ID
+        shell: bash
+        run: |
+          node --input-type=module -e '
+          import fs from "node:fs";
+          const e=process.env;
+          const validUuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+          if(!e.CLOUDFLARE_ACCOUNT_ID||!e.CLOUDFLARE_API_TOKEN||
+             !validUuid.test(e.DDM_D1_DATABASE_ID||"")||
+             !e.DDM_READ_TOKEN||e.DDM_READ_TOKEN.length<32)
+            throw new Error("Missing Cloudflare Free environment credentials, D1 UUID or a 32+ character viewer token");
+          const orig=fs.readFileSync("wrangler.toml","utf8");
+          if(!orig.includes("REPLACE_WITH_CREATED_FREE_D1_ID"))
+            throw new Error("D1 database placeholder not found");
+          fs.writeFileSync("wrangler.toml",
+            orig.replace("REPLACE_WITH_CREATED_FREE_D1_ID",e.DDM_D1_DATABASE_ID));
+          console.log("Validated required protected environment references; no secrets printed.");
+          '
+      - name: Verify catalog, database seed and scheduler tests
+        run: |
+          npm test
+          npm run inventory:check
+          npm run db:seed:generate
+          git diff --exit-code -- db/sqlite/002_seed_inventory.sql
+      - name: Install pinned Cloudflare CLI (free plan only)
+        run: npm install --global wrangler@4.44.0 --no-audit --no-fund
+      - name: Apply idempotent D1 schema to OWNER-CREATED Free database
+        run: wrangler d1 execute development-deployment-monitor --remote --file=db/sqlite/001_init.sql --yes
+      - name: Seed public-safe provider and historical service inventory
+        run: wrangler d1 execute development-deployment-monitor --remote --file=db/sqlite/002_seed_inventory.sql --yes
+      - name: Deploy protected report and read-only monitor
+        run: wrangler deploy
+      - name: Set read-only report API bearer token in Cloudflare secrets
+        shell: bash
+        run: |
+          printf '%s' "$DDM_READ_TOKEN" | wrangler secret put DDM_READ_TOKEN
+      - name: Verify optional configured public origin without disclosing tokens
+        env:
+          EXPECTED_ORIGIN: ${{ vars.DDM_PRODUCTION_ORIGIN }}
+        run: |
+          if [ -z "$EXPECTED_ORIGIN" ]; then
+            echo "Set DDM_PRODUCTION_ORIGIN to the verified Workers HTTPS origin before marking DDM operational." >> "$GITHUB_STEP_SUMMARY"
+          else
+            node --input-type=module -e '
+            const origin=process.env.EXPECTED_ORIGIN;
+            const u=new URL(origin);
+            if(u.protocol!=="https:"||u.username||u.password||u.pathname!=="/"||u.search||u.hash)
+              throw new Error("Invalid public origin");
+            const h=await fetch(origin+"/api/health",{redirect:"manual",signal:AbortSignal.timeout(10000)});
+            if(h.status!==200||((await h.json()).service)!=="ddm")throw Error("Monitor identity was not verified");
+            const x=await fetch(origin+"/api/report",{redirect:"manual",signal:AbortSignal.timeout(10000)});
+            if(x.status!==401)throw Error("Anonymous report access was not denied");
+            console.log("Verified protected monitor HTTPS identity and anonymous denial.");
+            '
+          fi
+      - name: Record honest release boundary
+        if: always()
+        shell: bash
+        run: |
+          echo 'This workflow attempts only the DDM monitor deployment on an owner-created Cloudflare Free database.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No client app was migrated, no provider account was created, and auto-failover remains disabled.' >> "$GITHUB_STEP_SUMMARY"
