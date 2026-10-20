@@ -1,0 +1,24 @@
+name: Validate per-repository DDM contract
+on:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out caller repository
+        uses: actions/checkout@v4
+      - name: Check out central validator
+        uses: actions/checkout@v4
+        with:
+          repository: neophilism/Development-Deployment-Monitor
+          ref: main
+          path: .ddm-validator
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate contract (read only)
+        run: node .ddm-validator/src/cli.mjs validate-client .github/deployment-monitor.json "$GITHUB_REPOSITORY"

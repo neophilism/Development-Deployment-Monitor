@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "last_reviewed": "2026-10-20",
+  "guaranteed_zero_charges_by_default": true,
+  "notes": [
+    "Listing a provider is not authorization to create paid resources.",
+    "Account-wide limits count every site; do not multiply a free quota by number of repositories.",
+    "Provider compatibility must be validated per workload and plan."
+  ],
+  "providers": [
+    {
+      "id": "render",
+      "capability": "node-container-static",
+      "cost_policy": "free-hard-quota",
+      "limitations": "Account-wide 750 free instance hours; projects can all suspend together",
+      "documentation": "https://render.com/docs/free",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "netlify",
+      "capability": "nextjs-functions-static",
+      "cost_policy": "free-hard-quota",
+      "limitations": "300 account-wide monthly credits; all sites can pause at limit",
+      "documentation": "https://www.netlify.com/pricing/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "deno-deploy",
+      "capability": "edge-nextjs-serverless",
+      "cost_policy": "free-limited",
+      "limitations": "Free monthly request, bandwidth and CPU allowances; check spending controls",
+      "documentation": "https://deno.com/deploy/pricing",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "oracle-always-free",
+      "capability": "vm-container",
+      "cost_policy": "existing-free-eligible",
+      "limitations": "Requires a VM within Always Free shape/resource limits; can stop/reclaim",
+      "documentation": "https://www.oracle.com/cloud/free/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "cloudflare-workers",
+      "capability": "edge-router-functions",
+      "cost_policy": "free-hard-quota",
+      "limitations": "100000 requests/day, strict CPU/runtime limits; good for routing, not arbitrary Node services",
+      "documentation": "https://developers.cloudflare.com/workers/platform/limits/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "cloudflare-pages",
+      "capability": "static-edge",
+      "cost_policy": "free-hard-quota",
+      "limitations": "Static-first; SSR compatibility and quotas must be verified",
+      "documentation": "https://developers.cloudflare.com/pages/platform/limits/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "github-pages",
+      "capability": "static-only",
+      "cost_policy": "free-conditional",
+      "limitations": "Public static content; never expose privileged backends here",
+      "documentation": "https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "koyeb",
+      "capability": "node-container",
+      "cost_policy": "free-hard-quota",
+      "limitations": "One free web instance per organization, 512MB and 0.1 vCPU; payment validation may apply",
+      "documentation": "https://www.koyeb.com/docs/reference/instances",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "northflank",
+      "capability": "node-container",
+      "cost_policy": "verification-required",
+      "limitations": "Sandbox free eligibility/resource restrictions require account verification",
+      "documentation": "https://northflank.com/pricing",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "digitalocean-static",
+      "capability": "static-only",
+      "cost_policy": "free-conditional",
+      "limitations": "Static component allowance is not a free Node/SSR backend",
+      "documentation": "https://www.digitalocean.com/pricing/app-platform",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "firebase-hosting",
+      "capability": "static-only",
+      "cost_policy": "free-conditional",
+      "limitations": "Spark static hosting; Cloud Functions may require paid billing",
+      "documentation": "https://firebase.google.com/pricing",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "huggingface-spaces",
+      "capability": "demo-container",
+      "cost_policy": "free-conditional",
+      "limitations": "Public demo with sleeping/cold-start restrictions, not critical authenticated production",
+      "documentation": "https://huggingface.co/docs/hub/spaces-gpus",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "vercel-hobby",
+      "capability": "nextjs-functions-static",
+      "cost_policy": "personal-only",
+      "limitations": "Hobby noncommercial use limitations: do not assume eligible for business services",
+      "documentation": "https://vercel.com/docs/plans/hobby",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "aws-lambda",
+      "capability": "serverless-node",
+      "cost_policy": "free-allowance-billing-risk",
+      "limitations": "Free monthly allowance but billable overage and account requirements; default forbidden",
+      "documentation": "https://aws.amazon.com/lambda/pricing/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "google-cloud-run",
+      "capability": "serverless-container",
+      "cost_policy": "free-allowance-billing-risk",
+      "limitations": "Free allowance but billing account and overage risk; default forbidden",
+      "documentation": "https://cloud.google.com/run/pricing",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "azure-container-apps",
+      "capability": "serverless-container",
+      "cost_policy": "free-allowance-billing-risk",
+      "limitations": "Free grant with billable overage; default forbidden",
+      "documentation": "https://azure.microsoft.com/en-us/pricing/details/container-apps/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "railway",
+      "capability": "node-container",
+      "cost_policy": "trial-or-paid",
+      "limitations": "Not assumed perpetually free; default forbidden without verified zero-cost tier",
+      "documentation": "https://railway.com/pricing",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    },
+    {
+      "id": "fly-io",
+      "capability": "vm-container",
+      "cost_policy": "paid",
+      "limitations": "No general $0 production allowance assumed; default forbidden",
+      "documentation": "https://fly.io/docs/about/pricing/",
+      "autodeploy_enabled": false,
+      "verified_connected": false
+    }
+  ]
+}

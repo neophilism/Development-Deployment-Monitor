@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "owner": "neophilism",
+  "snapshot_date": "2026-10-20",
+  "policy": "all-owned-repositories-except-four-oldest",
+  "excluded_repository_ids": [
+    19707206,
+    20304012,
+    23325764,
+    384264937
+  ],
+  "excluded": [
+    {
+      "repository": "neophilism/pupil",
+      "repository_id": 19707206
+    },
+    {
+      "repository": "neophilism/neurosynth",
+      "repository_id": 20304012
+    },
+    {
+      "repository": "neophilism/facerec",
+      "repository_id": 23325764
+    },
+    {
+      "repository": "neophilism/hubs",
+      "repository_id": 384264937
+    }
+  ],
+  "monitor_repository": "neophilism/Development-Deployment-Monitor",
+  "repositories": [
+    {
+      "repository": "neophilism/FOIA_Bias_Analysis",
+      "repository_id": 1099142138,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/FOIA_Aggregator",
+      "repository_id": 1100131834,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Send_FOIA_Log_Requests",
+      "repository_id": 1100148062,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/FiresideChat",
+      "repository_id": 1405960045,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/RAM-Marketplace",
+      "repository_id": 1406493325,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Civic-Registry-Transparency-Engine",
+      "repository_id": 1406493436,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Secure-Intake-Case-Workflow-Engine",
+      "repository_id": 1406493521,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Compliance-Authorization-Immutable-Audit-Engine",
+      "repository_id": 1406493621,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Stems-White-Label",
+      "repository_id": 1406812994,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Music_Video_Wizard",
+      "repository_id": 1407319603,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/End-To-End-Everywhere-Security-Architecture-Standard",
+      "repository_id": 1407502969,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Federal-Encryption-Compliance",
+      "repository_id": 1407581696,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/National-Secure-Ideas-Submission",
+      "repository_id": 1407584488,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Smart-Cities-Surveillance-Registry",
+      "repository_id": 1409099032,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Engine-Room",
+      "repository_id": 1409253829,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Live-Competition-Engine",
+      "repository_id": 1409457894,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/MMS",
+      "repository_id": 1409457974,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Rap-Battle-Platform",
+      "repository_id": 1409458375,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Algorithmic-Accountability",
+      "repository_id": 1409474727,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/End-To-End-Everywhere-Suite",
+      "repository_id": 1409526851,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Distributed-Audio-Engine",
+      "repository_id": 1412302394,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Distributed-Radio-Engine",
+      "repository_id": 1412356957,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/SceneSignal",
+      "repository_id": 1412357542,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/TrackZero",
+      "repository_id": 1412392258,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Music-Operations-Engine",
+      "repository_id": 1412440176,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Unsealed-Records-Command-Center",
+      "repository_id": 1412440362,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/NFT-Minting-Console",
+      "repository_id": 1413234308,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Music-Analyzer",
+      "repository_id": 1413248205,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Justic-For-All",
+      "repository_id": 1413301905,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/The-Public-Record",
+      "repository_id": 1413302481,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/HEARD",
+      "repository_id": 1413350802,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/The-Garden",
+      "repository_id": 1413400176,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/The-Cornerstone",
+      "repository_id": 1413400269,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Galinsky-2028",
+      "repository_id": 1413400904,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Our-Jam",
+      "repository_id": 1413724408,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Debate-Engine",
+      "repository_id": 1413777544,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Live-Debate-Engine",
+      "repository_id": 1414080004,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/UBC-Debates",
+      "repository_id": 1414080495,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Superintelligence-Engine",
+      "repository_id": 1414839354,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Superintelligence-Academy",
+      "repository_id": 1414839410,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Superintelligence-Command-Center",
+      "repository_id": 1414839461,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Boardroom",
+      "repository_id": 1415596507,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Federal-Electronic-Filing-Receipt-Portal",
+      "repository_id": 1418339957,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Law-Machine",
+      "repository_id": 1422482840,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Ask-Bill",
+      "repository_id": 1422483057,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Distributed-Governance-Engine",
+      "repository_id": 1422876391,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/CivicQuill",
+      "repository_id": 1422879132,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/CharterQuill",
+      "repository_id": 1422879201,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/RepoSafe",
+      "repository_id": 1422882442,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Browser-VR-Engine",
+      "repository_id": 1423746702,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/XLR8",
+      "repository_id": 1423748124,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Death-Of-The-Salesman",
+      "repository_id": 1424549528,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Get-Docked",
+      "repository_id": 1425893196,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Services-Marketplace-Engine",
+      "repository_id": 1425894053,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/The-Learning-Machine",
+      "repository_id": 1425895817,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": true,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Umami-Avocado",
+      "repository_id": 1427474043,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": false,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Prosperity-Banking-Engine",
+      "repository_id": 1427474435,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": false,
+      "classification": "unclassified"
+    },
+    {
+      "repository": "neophilism/Overclock",
+      "repository_id": 1427474840,
+      "default_branch": "main",
+      "registration": "planned",
+      "has_git_content": false,
+      "classification": "unclassified"
+    }
+  ]
+}
