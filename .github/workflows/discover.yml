@@ -1,0 +1,33 @@
+name: Discover new owner repositories
+on:
+  schedule:
+    - cron: '47 9 * * *'
+  workflow_dispatch:
+    inputs:
+      create_enrollment_prs:
+        type: boolean
+        description: "Create enrollment PRs using installed, scoped GitHub App"
+        required: false
+        default: false
+permissions:
+  contents: read
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Detect future owned repositories without modifying any apps
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DDM_GITHUB_APP_TOKEN: ${{ secrets.DDM_GITHUB_APP_TOKEN }}
+          APPLY: ${{ github.event_name == 'workflow_dispatch' && inputs.create_enrollment_prs && 'true' || 'false' }}
+        run: |
+          if [ "$APPLY" = true ]; then
+            node src/discover.mjs --apply
+          else
+            node src/discover.mjs
+          fi

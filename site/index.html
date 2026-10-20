@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Development Deployment Monitor | Portfolio</title>
+<meta name="color-scheme" content="light dark">
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f4f7f9;color:#1b2932;color-scheme:light}
+*{box-sizing:border-box}body{margin:0}main{max-width:1260px;margin:auto;padding:30px 25px 100px}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-bottom:25px}
+nav a{color:#265773;text-decoration:none;font-weight:600}
+h1{font-size:clamp(26px,3vw,36px);letter-spacing:-.04em;margin:7px 0}.eyebrow{font-size:11px;letter-spacing:.2em;font-weight:800;text-transform:uppercase;color:#476d84}
+.subtitle{color:#647884;font-size:14px;max-width:750px;line-height:1.6}
+.ribbon{font-size:12px;font-weight:600;padding:9px 12px;border-radius:30px;border:1px solid #c2d2da;background:white}
+section{margin-top:25px}h2{font-size:16px;margin:0 0 14px}section p{color:#5c7180;font-size:13px;line-height:1.6}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card,.panel{background:white;border:1px solid #d9e3e8;border-radius:14px;box-shadow:0 3px 9px #1f41540a}
+.card{padding:18px}.metric-value{font-size:31px;font-weight:750;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.metric-name{font-size:12px;color:#667b87;margin-top:6px}.panel{padding:20px;overflow:auto}
+.notice{padding:13px 16px;border-radius:12px;background:#eef4f7;border:1px solid #cbdce4;font-size:13px;line-height:1.5}
+label{font-size:12px;font-weight:600;color:#425a68}input{width:100%;max-width:430px;padding:11px;border:1px solid #9fb5c1;background:white;color:#16242e;border-radius:8px}
+button{padding:11px 17px;border:0;border-radius:8px;background:#193b50;color:white;font-weight:650;cursor:pointer}
+.controls{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}.controls>div{flex:1}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:770px}
+th{text-transform:uppercase;letter-spacing:.08em;text-align:left;font-size:10px;color:#738997;font-weight:750}
+td,th{padding:12px 10px;border-bottom:1px solid #e5ebee;vertical-align:top}
+td:first-child{font-weight:650}.dim{color:#627985;font-weight:400}
+.tag{display:inline-block;border-radius:30px;padding:4px 9px;background:#e8eef2;color:#415767;font-size:11px;font-weight:650;white-space:nowrap}
+.tag.danger{background:#faeceb;color:#a53e38}.tag.good{background:#eaf4ee;color:#236448}
+.tag.pending{background:#fff4d7;color:#916d13}
+.legend{display:flex;justify-content:space-between;gap:15px;align-items:center}
+footer{color:#697f8b;font-size:12px;margin-top:30px;line-height:1.6}
+@media(max-width:750px){main{padding:20px 12px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:13px}header{align-items:start}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div><div class="eyebrow">Portfolio control plane</div><h1>Development Deployment Monitor</h1><div class="subtitle">Deployment availability, verified free hosting capacity and evidence-based paid hosting forecasts across the development portfolio.</div></div>
+<nav><a href="https://github.com/neophilism/Development-Deployment-Monitor">Source & runbooks ↗</a></nav>
+</header>
+<div class="notice" id="mode">Loading locally saved inventory. <strong>A service is not counted online unless a live readiness check has succeeded.</strong></div>
+<section><div class="metrics">
+<div class="card"><div class="metric-value" id="repos">—</div><div class="metric-name">Eligible repositories</div></div>
+<div class="card"><div class="metric-value" id="deployments">—</div><div class="metric-name">Verified live deployments</div></div>
+<div class="card"><div class="metric-value" id="suspended">—</div><div class="metric-name">Suspended legacy services</div></div>
+<div class="card"><div class="metric-value" id="freeoffers">—</div><div class="metric-name">Free resource candidates</div></div>
+</div></section>
+<section><div class="panel">
+<h2>Connect live monitoring data</h2>
+<p>This page loads the public-safe inventory first. When the Cloudflare D1 monitor is connected, enter the protected report access token to display recorded health, provider quota and pricing telemetry. Tokens are kept in this browser tab's memory only.</p>
+<div class="controls"><div><label for="token">Report access token (not stored)</label><input id="token" type="password" placeholder="Paste only into your own authenticated site" autocomplete="off" spellcheck="false"></div><button id="connect" type="button">Read live report</button></div>
+<p id="last-sync">No live telemetry connection established.</p>
+</div></section>
+<section><div class="panel"><div class="legend"><h2>Deployment inventory</h2><span class="tag pending" id="source-label">Historical snapshot</span></div>
+<table><thead><tr><th>Service</th><th>Repository</th><th>Current status</th><th>Hosting shortlist</th><th>Next action</th></tr></thead><tbody id="inventory"></tbody></table>
+</div></section>
+<section><div class="panel"><h2>Cost projection</h2>
+<p id="forecast">A precise cost estimate requires recorded requests, bandwidth, CPU, memory, database/storage use and real provider price quotes. No spend is authorized.</p>
+<div class="metrics">
+<div class="card"><div class="metric-value" id="low-cost">—</div><div class="metric-name">Illustrative container floor / month</div></div>
+<div class="card"><div class="metric-value" id="high-cost">—</div><div class="metric-name">Illustrative container upper / month</div></div>
+<div class="card"><div class="metric-value" id="measured">—</div><div class="metric-name">Measured bills this month</div></div>
+<div class="card"><div class="metric-value" id="confidence">Unknown</div><div class="metric-name">Paid optimization confidence</div></div>
+</div></div></section>
+<section><div class="panel"><h2>Provider resources</h2><p id="catalog-label"></p>
+<table><thead><tr><th>Provider</th><th>Resource class</th><th>Cost policy</th><th>Limitation</th><th>Account connection</th></tr></thead><tbody id="resources"></tbody></table></div></section>
+<footer>The portfolio is designed to enforce a $0 incremental spend until explicitly changed. Provider lists and prices are candidates, not a guarantee of capacity, uptime or provider eligibility. GitHub cron is best effort; real-time failover requires an independent active router and a verified standby.</footer>
+</main>
+<script type="module">
+const $=id=>document.getElementById(id);
+const text=(el,value)=>{el.textContent=String(value??"—")};
+const cell=(row,value)=>{const td=document.createElement("td");td.textContent=String(value??"—");row.append(td);return td};
+const statusCell=(row,status)=>{
+ const td=document.createElement("td");const span=document.createElement("span");
+ span.className="tag "+(/suspended|degraded|unavailable/i.test(status)?"danger":/ready|verified/i.test(status)?"good":"pending");
+ span.textContent=status;td.append(span);row.append(td);
+};
+let snapshot=null;let accessToken="";
+function showSnapshot(data){
+ snapshot=data;
+ text($("repos"),data.eligible_repositories);
+ text($("suspended"),data.suspended_legacy_services);
+ text($("freeoffers"),data.free_resource_candidates);
+ text($("deployments"),data.verified_live_deployments??0);
+ text($("low-cost"),data.hypothetical_hosting_low_usd_month===null?"—":"$"+data.hypothetical_hosting_low_usd_month);
+ text($("high-cost"),data.hypothetical_hosting_high_usd_month===null?"—":"$"+data.hypothetical_hosting_high_usd_month);
+ text($("measured"),"Unmeasured");
+ text($("confidence"),"Not measured");
+ const t=$("inventory");t.replaceChildren();
+ for(const item of data.services??[]){
+  const tr=document.createElement("tr");cell(tr,item.name);cell(tr,item.repository);
+  statusCell(tr,item.status);
+  cell(tr,(item.ranked_free_options??[]).slice(0,5).join(" → ")||"Awaiting workload classification");
+  cell(tr,item.next_action||"No live destination verified");t.append(tr);
+ }
+ const r=$("resources");r.replaceChildren();
+ for(const p of data.resources??[]){
+   const tr=document.createElement("tr");cell(tr,p.name);cell(tr,p.category);
+   statusCell(tr,p.policy);cell(tr,p.notes);cell(tr,p.verified_connected?"Verified":"Not connected");r.append(tr);
+ }
+ text($("catalog-label"),data.free_resource_candidates+" catalogued resources, all deployment actions disabled until accounts and cost guards are verified.");
+ text($("mode"),"Inventory captured "+data.snapshot_date+". All Render outage entries are historical; the live API is not connected. No replacement is assumed online.");
+}
+async function loadSnapshot(){
+ try{const r=await fetch("./data/portfolio-snapshot.json",{cache:"no-store"});if(!r.ok)throw Error("snapshot unavailable");showSnapshot(await r.json())}
+ catch{text($("mode"),"No inventory snapshot has been published yet. This is not proof of an online deployment.")}
+}
+async function loadLive(){
+ if(!accessToken)return;
+ try{
+  const r=await fetch("/api/report",{headers:{authorization:"Bearer "+accessToken},cache:"no-store"});
+  if(!r.ok)throw Error("Live monitor returned HTTP "+r.status);
+  const o=await r.json();
+  text($("deployments"),o.live_deployment_count);
+  text($("last-sync"),"Last D1 read: "+o.generated_at+" · monitored services: "+o.monitored_service_count+" · last probe time varies per service");
+  text($("source-label"),"Live D1 observations");
+  text($("measured"),o.actual_spend_total_usd==null?"Unmeasured":"$"+o.actual_spend_total_usd);
+  text($("confidence"),o.estimate_status==="complete"?"Measured":"Incomplete");
+  if(o.estimate_status!=="complete")text($("forecast"),"Pricing data and usage history remain insufficient for a reliable paid hosting budget. The placeholders shown are not verified quotes.");
+  const latest=new Map((o.deployments??[]).map(d=>[d.id,d]));
+  const byService=new Map();
+  for(const d of o.deployments??[]){
+   let a=byService.get(d.service);if(!a){a=[];byService.set(d.service,a)}a.push(d);
+  }
+  const rankings=new Map();for(const c of o.rankings??[]){let a=rankings.get(c.service);if(!a){a=[];rankings.set(c.service,a)}a.push(c.provider_id)}
+  const t=$("inventory");t.replaceChildren();
+  for(const item of snapshot?.services??[]){
+   const tr=document.createElement("tr");cell(tr,item.name);cell(tr,item.repository);
+   const ds=byService.get(item.name)||[];
+   const ready=ds.some(d=>d.verified_readiness===1);
+   statusCell(tr,ready?"verified-ready":ds.length?"monitoring-"+ds[0].runtime_status:item.status);
+   cell(tr,(rankings.get(item.name)||item.ranked_free_options||[]).slice(0,5).join(" → ")||"Awaiting workload classification");
+   cell(tr,ready?"Live readiness observed":"No ready independent host recorded");
+   t.append(tr);
+  }
+ }catch(err){text($("last-sync"),err.message+"; dashboard remains on historical snapshot");text($("source-label"),"Historical snapshot")}
+}
+$("connect").addEventListener("click",()=>{accessToken=$("token").value.trim();$("token").value="";loadLive()});
+setInterval(()=>{if(accessToken)loadLive()},60000);
+loadSnapshot();
+</script>
+</body>
+</html>

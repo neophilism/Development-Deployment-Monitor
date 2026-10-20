@@ -1,6 +1,6 @@
 {
   "name": "development-deployment-monitor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Provider-neutral, zero-spend portfolio monitoring and failover policy",
@@ -10,6 +10,8 @@
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "inventory:check": "node src/cli.mjs inventory",
-    "monitor:scan": "node src/cli.mjs scan"
+    "monitor:scan": "node src/cli.mjs scan",
+    "report:build": "node src/generate-report.mjs",
+    "discover:check": "node src/discover.mjs"
   }
 }

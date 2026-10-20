@@ -1,0 +1,24 @@
+name = "development-deployment-monitor"
+main = "workers/ddm/src/index.mjs"
+compatibility_date = "2026-10-20"
+workers_dev = true
+
+# Free plan allows only a limited number of Workers Cron triggers.
+[triggers]
+crons = ["*/5 * * * *"]
+
+[assets]
+directory = "./site"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+# Create exactly one D1 Free database named development-deployment-monitor.
+# Then replace the placeholder database_id. Never use a paid plan automatically.
+[[d1_databases]]
+binding = "DB"
+database_name = "development-deployment-monitor"
+database_id = "REPLACE_WITH_CREATED_FREE_D1_ID"
+
+# Set a random 32+-character token with:
+#   npx wrangler secret put DDM_READ_TOKEN
+# Do not commit any plaintext secret or send it in chat.
