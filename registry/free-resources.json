@@ -12,7 +12,8 @@
     "Static hosts cannot replace authenticated API backends.",
     "Host selection must exclude providers with paid overage or unknown payment guard under zero-spend policy.",
     "Northflank and Koyeb require payment methods even to use developer free services; do not recommend as zero-risk ready capacity until account/cost guard confirmed.",
-    "published_account_app_cap is only a theoretical per-account cap; no provider account is verified connected. Render web and Oracle A1 have zero current known available slots."
+    "published_account_app_cap is only a theoretical per-account cap; no provider account is verified connected. Render web and Oracle A1 have zero current known available slots.",
+    "Railway Free receives only $1 shared credit/month. Allocator conservatively reserves at most one small intermittent app; no 24/7 capacity is guaranteed."
   ],
   "resources": [
     {
@@ -130,7 +131,7 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "Ten active apps per account, 1M req/mo, 20 GiB egress/mo and 5 custom domains; apps scale down when idle.",
+      "notes": "Free usage advertised up to 10 apps, 1M requests and 20GiB egress/mo, but unverified organizations have restricted Free limits until payment-card verification.",
       "docs_url": "https://deno.com/deploy/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
@@ -140,7 +141,8 @@
       "reviewed_at": "2026-10-20",
       "published_account_app_cap": 10,
       "signup_requires_card": false,
-      "production_suitable": true
+      "production_suitable": true,
+      "full_free_allowance_requires_card_verification": true
     },
     {
       "id": "render-static-free",
@@ -430,7 +432,7 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "After trial account has around $1 shared monthly credit; feasibility requires quota verification",
+      "notes": "Free account has only $1 of shared, non-rollover compute credit per month after trial; a single demo app can exhaust it. This is not reliable always-on capacity.",
       "docs_url": "https://railway.com/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
@@ -438,7 +440,7 @@
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
       "reviewed_at": "2026-10-20",
-      "published_account_app_cap": null,
+      "published_account_app_cap": 1,
       "signup_requires_card": false,
       "production_suitable": null
     },

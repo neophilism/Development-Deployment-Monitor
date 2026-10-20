@@ -28,19 +28,17 @@
       "id": "srv-db7gket9fdbs73e6a0d0",
       "name": "nft-minting-console-preview",
       "repository": "neophilism/NFT-Minting-Console",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": true
     },
@@ -48,19 +46,17 @@
       "id": "srv-db6n9lpsrm7s73c6las0",
       "name": "our-jam-rehearsal",
       "repository": "neophilism/Our-Jam",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": true
     },
@@ -68,19 +64,17 @@
       "id": "srv-db6n4uid0e5s73aus43g",
       "name": "Our-Jam",
       "repository": "neophilism/Our-Jam",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": true
     },
@@ -88,15 +82,16 @@
       "id": "srv-db6jnrlg1s2s739jt9ug",
       "name": "boardroom",
       "repository": "neophilism/Boardroom",
+      "provisional_one_host_allocation": "oracle-e2-micro",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
-        "northflank-sandbox",
         "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": true
     },
@@ -104,19 +99,17 @@
       "id": "srv-db5v0lfavr4c73a62870",
       "name": "galinsky-2028-volunteer-portal",
       "repository": "neophilism/Galinsky-2028",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": true
     },
@@ -124,19 +117,17 @@
       "id": "srv-db5teuajnfac73bm8pug",
       "name": "galinsky-2028-private-preview",
       "repository": "neophilism/Galinsky-2028",
+      "provisional_one_host_allocation": "railway-free",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": false
     },
@@ -144,19 +135,17 @@
       "id": "srv-db5j814s728c738161ig",
       "name": "public-debate-engine-preview",
       "repository": "neophilism/Debate-Engine",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -164,19 +153,17 @@
       "id": "srv-db58ghvlk1mc7393sk30",
       "name": "cornerstone-policy-preview",
       "repository": "neophilism/The-Cornerstone",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -184,19 +171,17 @@
       "id": "srv-db53f259fdbs73bfsltg",
       "name": "music-video-wizard-prod",
       "repository": "neophilism/Music_Video_Wizard",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": true
     },
@@ -204,16 +189,16 @@
       "id": "srv-db537majnfac739336u0",
       "name": "music-video-wizard-executor",
       "repository": "neophilism/Music_Video_Wizard",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "oracle-a1",
         "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": true
     },
@@ -221,19 +206,17 @@
       "id": "srv-db4ouv142hec73ef91ng",
       "name": "distributed-radio-engine-preview",
       "repository": "neophilism/Distributed-Radio-Engine",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -241,16 +224,16 @@
       "id": "srv-db4oo62jnfac73fvvpmg",
       "name": "music-operations-engine",
       "repository": "neophilism/Music-Operations-Engine",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "oracle-a1",
         "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -258,15 +241,16 @@
       "id": "srv-db3ii4tg1s2s73ak2eag",
       "name": "engine-room",
       "repository": "neophilism/Engine-Room",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
-        "northflank-sandbox",
         "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": true
     },
@@ -274,19 +258,17 @@
       "id": "srv-db3f658m7kps73ee6360",
       "name": "algorithmic-accountability-preview",
       "repository": "neophilism/Algorithmic-Accountability",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -294,20 +276,19 @@
       "id": "srv-db3a2smk1f9s738vbbt0",
       "name": "ram-marketplace-sandbox",
       "repository": "neophilism/RAM-Marketplace",
+      "provisional_one_host_allocation": "deno-deploy-free",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
         "deno-deploy-free",
         "netlify-free",
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -315,19 +296,17 @@
       "id": "srv-db39i3ad0e5s73fim6b0",
       "name": "civic-registry-preview-v2",
       "repository": "neophilism/Civic-Registry-Transparency-Engine",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -335,19 +314,17 @@
       "id": "srv-db39hk60tbcc73839npg",
       "name": "music-video-wizard-preview",
       "repository": "neophilism/Music_Video_Wizard",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": true
     },
@@ -355,20 +332,19 @@
       "id": "srv-db39higm7kps73dh35p0",
       "name": "fireside-chat-preview",
       "repository": "neophilism/FiresideChat",
+      "provisional_one_host_allocation": "deno-deploy-free",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
         "deno-deploy-free",
         "netlify-free",
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -376,20 +352,19 @@
       "id": "srv-db39hhm7bikc73c3qcj0",
       "name": "stems-white-label-preview",
       "repository": "neophilism/Stems-White-Label",
+      "provisional_one_host_allocation": "deno-deploy-free",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
         "deno-deploy-free",
         "netlify-free",
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -397,20 +372,19 @@
       "id": "srv-db39hg67bikc73c3q770",
       "name": "secure-intake-preview",
       "repository": "neophilism/Secure-Intake-Case-Workflow-Engine",
+      "provisional_one_host_allocation": "deno-deploy-free",
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "nextjs",
       "ranked_free_options": [
         "deno-deploy-free",
         "netlify-free",
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": true,
       "stateful": false
     },
@@ -418,19 +392,17 @@
       "id": "srv-db39h9ajnfac7394smbg",
       "name": "federal-encryption-preview",
       "repository": "neophilism/Federal-Encryption-Compliance",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -438,19 +410,17 @@
       "id": "srv-db39h83ncjis73etb6i0",
       "name": "compliance-audit-engine-preview",
       "repository": "neophilism/Compliance-Authorization-Immutable-Audit-Engine",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "koyeb-free",
         "railway-free",
-        "oracle-a1",
-        "oracle-e2-micro",
-        "render-web-free"
+        "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     },
@@ -458,16 +428,16 @@
       "id": "srv-db23s33bc2fs73f4ui10",
       "name": "foia-aggregator",
       "repository": "neophilism/FOIA_Aggregator",
+      "provisional_one_host_allocation": null,
+      "capacity_assumptions_unverified": true,
       "status": "suspended-on-render",
       "classification": "container",
       "ranked_free_options": [
-        "northflank-sandbox",
-        "oracle-a1",
         "oracle-e2-micro"
       ],
       "account_guard_verified": false,
       "verified_live_deployment": null,
-      "next_action": "Connect a compatible free host and securely transfer runtime secrets; verify live endpoint and app authorization",
+      "next_action": "Connect free host account, securely transfer runtime secrets, deploy and verify",
       "needs_private_auth": false,
       "stateful": false
     }
@@ -492,7 +462,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "cloudflare-workers",
@@ -514,7 +487,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "cloudflare-worker-assets",
@@ -535,7 +511,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "netlify-free",
@@ -552,14 +531,17 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "300 shared monthly credits, hard cutoff; deployment and compute consume credits",
+      "notes": "300 *shared* monthly credits with hard cutoff and no recharge; capacity depends on builds, traffic, bandwidth and functions; no guaranteed 24/7 Node process.",
       "docs_url": "https://www.netlify.com/pricing/",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "deno-deploy-free",
@@ -576,14 +558,18 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "10 active apps, 1M requests/month, 20GiB monthly egress, CPU/memory limits",
+      "notes": "Free usage advertised up to 10 apps, 1M requests and 20GiB egress/mo, but unverified organizations have restricted Free limits until payment-card verification.",
       "docs_url": "https://deno.com/deploy/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 10,
+      "signup_requires_card": false,
+      "production_suitable": true,
+      "full_free_allowance_requires_card_verification": true
     },
     {
       "id": "render-static-free",
@@ -604,7 +590,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "render-web-free",
@@ -619,14 +608,17 @@
       ],
       "policy": "free-hard-limit",
       "quota_scope": "account",
-      "notes": "750 shared instance hours/month; account exhausted in October 2026",
+      "notes": "All 23 web services suspended after shared 750 hours exhausted; zero usable web capacity on current workspace until quota reset, not an available fallback.",
       "docs_url": "https://render.com/docs/free",
       "verified_connected": false,
       "cost_guard_verified": false,
-      "available_capacity": null,
+      "available_capacity": 0,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 0,
+      "signup_requires_card": false,
+      "production_suitable": false
     },
     {
       "id": "northflank-sandbox",
@@ -643,14 +635,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "Two always-on services, one DB and two cron jobs; sandbox terms apply",
+      "notes": "Two free always-on developer Sandbox services; payment method required for creation and provider says not for production. Do not rank as usable before account/card/cost guard verified.",
       "docs_url": "https://northflank.com/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 2,
+      "signup_requires_card": true,
+      "production_suitable": false
     },
     {
       "id": "koyeb-free",
@@ -664,14 +659,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "One 512MB/0.1vCPU free web instance/org, sleep; credit card validation",
+      "notes": "One free 512MB/0.1vCPU web service/org, scales to zero after 1h idle. Payment card validation mandatory; not for production.",
       "docs_url": "https://www.koyeb.com/docs/reference/instances",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": true,
+      "production_suitable": false
     },
     {
       "id": "oracle-e2-micro",
@@ -687,14 +685,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "One existing 1GB VM, shared limits and capacity; home region",
+      "notes": "One previously created 1GB E2.1.Micro VM; may run multiple tiny processes ONLY when verified RAM/CPU and isolation allow. No SSH deployment access verified.",
       "docs_url": "https://docs.oracle.com/iaas/Content/FreeTier/freetier.htm",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "oracle-a1",
@@ -710,14 +711,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "ARM quota up to 4 OCPU/24GB aggregate on eligible plans, capacity may be unavailable",
+      "notes": "No A1 capacity was previously available in existing account; treat as zero slots until a real Always Free instance exists.",
       "docs_url": "https://docs.oracle.com/iaas/Content/FreeTier/freetier.htm",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 0,
+      "signup_requires_card": false,
+      "production_suitable": true
     },
     {
       "id": "gcp-e2-micro",
@@ -739,7 +743,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-cloud-run",
@@ -762,7 +769,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "aws-lambda",
@@ -783,7 +793,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "azure-functions",
@@ -804,7 +817,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "vercel-hobby",
@@ -826,7 +842,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "personal-only",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "railway-free",
@@ -840,14 +859,17 @@
       ],
       "policy": "free-conditional",
       "quota_scope": "account",
-      "notes": "After trial account has around $1 shared monthly credit; feasibility requires quota verification",
+      "notes": "Free account has only $1 of shared, non-rollover compute credit per month after trial; a single demo app can exhaust it. This is not reliable always-on capacity.",
       "docs_url": "https://railway.com/pricing",
       "verified_connected": false,
       "cost_guard_verified": false,
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": 1,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "digitalocean-static",
@@ -867,7 +889,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-pages",
@@ -887,7 +912,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "restricted",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": false
     },
     {
       "id": "gitlab-pages",
@@ -907,7 +935,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "firebase-hosting",
@@ -928,7 +959,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-router",
@@ -950,7 +984,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-actions-public",
@@ -972,7 +1009,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "northflank-cron",
@@ -992,7 +1032,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-cron",
@@ -1012,7 +1055,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-free-postgres",
@@ -1033,7 +1079,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-d1",
@@ -1054,7 +1103,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "turso-free",
@@ -1075,7 +1127,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "supabase-free",
@@ -1097,7 +1152,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "mongodb-atlas-m0",
@@ -1117,7 +1175,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "firebase-firestore-spark",
@@ -1137,7 +1198,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "oracle-autonomous-free",
@@ -1157,7 +1221,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-kv",
@@ -1177,7 +1244,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "deno-kv-free",
@@ -1197,7 +1267,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "upstash-redis-free",
@@ -1218,7 +1291,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "upstash-qstash-free",
@@ -1239,7 +1315,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-queues",
@@ -1259,7 +1338,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-r2",
@@ -1280,7 +1362,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "backblaze-b2",
@@ -1301,7 +1386,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-object-storage",
@@ -1321,7 +1409,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "supabase-storage",
@@ -1341,7 +1432,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "oracle-object-storage",
@@ -1361,7 +1455,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-cloud-storage",
@@ -1381,7 +1478,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudinary-free",
@@ -1402,7 +1502,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "imagekit-free",
@@ -1422,7 +1525,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "huggingface-spaces-cpu",
@@ -1443,7 +1549,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "kaggle-notebooks",
@@ -1463,7 +1572,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "google-colab-free",
@@ -1483,7 +1595,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "modal-free-credits",
@@ -1504,7 +1619,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "github-ghcr",
@@ -1524,7 +1642,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "circleci-free",
@@ -1544,7 +1665,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "uptimerobot-free",
@@ -1565,7 +1689,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "better-stack-free",
@@ -1586,7 +1713,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "personal-only",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "grafana-cloud-free",
@@ -1607,7 +1737,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "sentry-free",
@@ -1628,7 +1761,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "posthog-free",
@@ -1648,7 +1784,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-dns-free",
@@ -1669,7 +1808,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "cloudflare-turnstile",
@@ -1689,7 +1831,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "resend-free",
@@ -1709,7 +1854,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "brevo-free",
@@ -1729,7 +1877,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "clerk-free",
@@ -1750,7 +1901,10 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     },
     {
       "id": "neon-auth-free",
@@ -1770,12 +1924,15 @@
       "available_capacity": null,
       "month_to_date_usage": null,
       "commercial_eligibility": "verify",
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "published_account_app_cap": null,
+      "signup_requires_card": false,
+      "production_suitable": null
     }
   ],
   "notes": [
     "No Render replacement is counted as deployed without a real readiness observation.",
-    "Provider ranking is provisional and ignores unconnected account quotas.",
+    "Provider ranking is provisional and respects published free app limits, but actual account credits and resource capacities are unverified.",
     "A free provider must be compatible with commercial use and must block any overage billing.",
     "The paid range covers only 23 web-container slots and excludes databases, GPU and other costs."
   ]
