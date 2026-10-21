@@ -71,7 +71,7 @@ async function collect(env){
  for(const {d,check} of checks){
   await env.DB.batch([
    env.DB.prepare("INSERT INTO ddm_observations(deployment_id,observed_at,probe_region,latency_ms,http_status,readiness_ok,failure_code) "+
-    "VALUES(?,datetime('now'),'cloudflare-edge',?,?,?,?,?)")
+    "VALUES(?,datetime('now'),'cloudflare-edge',?,?,?,?)")
    .bind(d.id,check.latency_ms,check.http_status,check.ok?1:0,check.reason),
    env.DB.prepare("UPDATE ddm_deployments SET last_sampled_at=datetime('now'),verified_readiness=?,runtime_status=?,updated_at=datetime('now') WHERE id=?")
    .bind(check.ok?1:0,check.ok?"ready":"degraded",d.id)
