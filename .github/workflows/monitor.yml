@@ -2,8 +2,8 @@ name: Portfolio deployment availability (read-only)
 on:
   workflow_dispatch:
   schedule:
-    # GitHub cron is best effort, can run late, and is NOT sub-minute failover.
-    - cron: '*/5 * * * *'
+    # Daily low-overhead fallback scan; live Worker readiness is separate.
+    - cron: '17 3 * * *'
 permissions:
   contents: read
 concurrency:
