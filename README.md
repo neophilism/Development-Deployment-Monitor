@@ -11,7 +11,7 @@ Portfolio-wide **free-resource optimizer, verified deployment watcher and future
 - [Host ranking engine](src/placement.mjs) with commercial-use, resource compatibility, always-on, shared quota, paid-overage and verified account restrictions.
 - [Paid forecast model](src/forecast.mjs), explicit about missing usage data. [Historical sample report](reports/PRELIMINARY.md) is **not** an actual quote or approved spending.
 - [Database schema and idempotent historical seed](db/sqlite/001_init.sql) ([seed](db/sqlite/002_seed_inventory.sql)) for services, providers, cost/revision history, uptime, quota samples, incidents, failovers and recommendation scores.
-- [Cloudflare Worker + D1 monitor](workers/ddm/src/index.mjs) with five-minute free cron, protected `/api/report` and safe external readiness polling; [live report UI](site/index.html) refreshes once per minute after a verified deployment. This is code, **not** a connected or running worker.
+- [Cloudflare Worker + D1 monitor](workers/ddm/src/index.mjs) with five-minute free cron, protected `/api/report` and safe external readiness polling; [live report UI](site/index.html) loads only when its Generate report button is clicked. This is code, **not** a connected or running worker.
 - [New-repository discovery](src/discover.mjs) for future source repositories, with scope-restricted GitHub App enrollment PRs only when separately authorized.
 
 ### Exactly one active host

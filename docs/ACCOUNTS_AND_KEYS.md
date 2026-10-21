@@ -46,7 +46,7 @@
 
 ## Privacy and invoice controls
 
-Cloudflare Worker report API is token-protected, uses D1, and never returns secrets. Do not configure a dashboard worker with real private data on an open static URL. Do not enable auto-recharge, paid instance sizes, trials with automatic conversions, overage billing, or provider accounts whose free terms forbid your business applications. The report page refreshes every minute when connected; monitoring cron runs on a five-minute best-effort schedule and cannot guarantee instantaneous failover.
+Cloudflare Worker report API is token-protected, uses D1, and never returns secrets. Do not configure a dashboard worker with real private data on an open static URL. Do not enable auto-recharge, paid instance sizes, trials with automatic conversions, overage billing, or provider accounts whose free terms forbid your business applications. The report page reads D1 only after a Generate report click, not continuously. The separate Worker health checker retains five-minute monitoring for approved live endpoints; the GitHub backup scanner runs only daily and does not guarantee instant failover.
 
 ## Easiest deployment route: GitHub protected Free environment
 

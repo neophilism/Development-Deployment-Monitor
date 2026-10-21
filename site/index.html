@@ -48,9 +48,9 @@ footer{color:#697f8b;font-size:12px;margin-top:30px;line-height:1.6}
 <div class="card"><div class="metric-value" id="freeoffers">—</div><div class="metric-name">Free resource candidates</div></div>
 </div></section>
 <section><div class="panel">
-<h2>Connect live monitoring data</h2>
-<p>This page loads the public-safe inventory first. When the Cloudflare D1 monitor is connected, enter the protected report access token to display recorded health, provider quota and pricing telemetry. Tokens are kept in this browser tab's memory only.</p>
-<div class="controls"><div><label for="token">Report access token (not stored)</label><input id="token" type="password" placeholder="Paste only into your own authenticated site" autocomplete="off" spellcheck="false"></div><button id="connect" type="button">Read live report</button></div>
+<h2>Generate report on demand</h2>
+<p>This page loads the public-safe inventory first. When D1 is connected, click Generate report to retrieve uptime, quota, and price evidence. Report generation does not run in the background.</p>
+<div class="controls"><div><label for="token">Report access token (not stored)</label><input id="token" type="password" placeholder="Paste only into your own authenticated site" autocomplete="off" spellcheck="false"></div><button id="connect" type="button">Generate report</button></div>
 <p id="last-sync">No live telemetry connection established.</p>
 </div></section>
 <section><div class="panel"><div class="legend"><h2>Deployment inventory</h2><span class="tag pending" id="source-label">Historical snapshot</span></div>
@@ -138,7 +138,7 @@ async function loadLive(){
  }catch(err){text($("last-sync"),err.message+"; dashboard remains on historical snapshot");text($("source-label"),"Historical snapshot")}
 }
 $("connect").addEventListener("click",()=>{accessToken=$("token").value.trim();$("token").value="";loadLive()});
-setInterval(()=>{if(accessToken)loadLive()},60000);
+// Reports are generated only by clicking the button.
 loadSnapshot();
 </script>
 </body>
