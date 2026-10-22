@@ -44,7 +44,9 @@
       "id": "DDM-002",
       "title": "Shared PR registry and agent constraints",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        9
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
@@ -994,6 +996,18 @@
       "updatedAt": "2026-10-20T19:48:55Z",
       "mergedAt": "2026-10-20T19:48:55Z",
       "closedAt": "2026-10-20T19:48:55Z",
+      "draft": false
+    },
+    {
+      "id": 4971511726,
+      "number": 9,
+      "title": "DDM-002: Enforce canonical PR evidence integrity",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/9",
+      "createdAt": "2026-10-22T17:33:29Z",
+      "updatedAt": "2026-10-22T17:33:29Z",
+      "mergedAt": null,
+      "closedAt": null,
       "draft": false
     }
   ]
