@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-22T20:03:00Z",
+  "observedAt": "2026-10-22T20:06:36Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -144,7 +144,15 @@
         "Local contract validator and CI"
       ],
       "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
-      "verification": [],
+      "verification": [
+        {
+          "status": "verified",
+          "headSha": "cd5bcb449e8f34e4dc7c7ae63e18749e8757e096",
+          "mergeSha": "abfc67969375fe05f42d039ecb0f627ca436eceb",
+          "exactHeadRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/39845636941",
+          "mergedMainRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/39845806829"
+        }
+      ],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -1068,13 +1076,13 @@
       "id": 4973364662,
       "number": 12,
       "title": "DDM-005: Add local contract validator and CI",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/12",
       "createdAt": "2026-10-22T20:02:32Z",
-      "updatedAt": "2026-10-22T20:02:32Z",
-      "mergedAt": null,
-      "closedAt": null,
-      "draft": true
+      "updatedAt": "2026-10-22T20:05:31Z",
+      "mergedAt": "2026-10-22T20:05:31Z",
+      "closedAt": "2026-10-22T20:05:31Z",
+      "draft": false
     }
   ]
 }
