@@ -9,7 +9,7 @@ const providerSet=new Set(load("registry/providers.json").providers.map(x=>x.id)
 const manifest=()=>({schema_version:1,repository:"neophilism/Boardroom",kind:"web-app",
  monitoring:{mode:"inventory"},budget:{monthly_usd_max:0,allow_billable_fallback:false},
  failover:{mode:"disabled",stateful:true,writer_fencing:false,router:"none"},deployments:[]});
-const endpoint=(id,role,provider)=>({id,provider,origin:"https://example.net",ready_path:"/api/ready",expected_status:200,role,ready_json:{status:"ready"},release_sha:"a".repeat(40),preprovisioned:true,warm:true,quota_verified:true});
+const endpoint=(id,role,provider)=>({id,provider,origin:`https://${id}.example.net`,ready_path:"/api/ready",expected_status:200,role,ready_json:{status:"ready"},release_sha:"a".repeat(40),preprovisioned:true,warm:true,quota_verified:true});
 test("Four oldest exclusions and all 58 project entries match audited inventory",()=>{
  const x=validateInventory(load("registry/repositories.json"));
  assert.equal(x.repositories.length,58);
@@ -67,4 +67,50 @@ test("A matching readiness JSON is healthy",async()=>{
  const d=endpoint("first","primary","netlify");
  const transport=async()=>new Response(JSON.stringify({status:"ready"}),{status:200,headers:{"content-type":"application/json"}});
  assert.equal((await probeDeployment(d,{transport})).ok,true);
+});
+
+test("Active contracts require one evidenced primary and unique public origins",()=>{
+ const m=manifest();m.monitoring.mode="active";
+ m.deployments=[endpoint("first","primary","netlify")];
+ assert.equal(validateContract(m,m.repository,providerSet).deployments.length,1);
+ const missingRelease=structuredClone(m);delete missingRelease.deployments[0].release_sha;
+ assert.throws(()=>validateContract(missingRelease,m.repository,providerSet),e=>e.code==="active_evidence_required");
+ const duplicatePrimary=structuredClone(m);duplicatePrimary.deployments.push({...endpoint("second","primary","deno-deploy"),origin:"https://other.example.net"});
+ assert.throws(()=>validateContract(duplicatePrimary,m.repository,providerSet),e=>e.code==="active_primary_required");
+ const duplicateOrigin=structuredClone(m);duplicateOrigin.deployments.push({...endpoint("second","standby","deno-deploy"),origin:m.deployments[0].origin});
+ assert.throws(()=>validateContract(duplicateOrigin,m.repository,providerSet),e=>e.code==="deployment_origin_duplicate");
+});
+test("Router and runbook fields are explicit and public-safe",()=>{
+ const missingRouter=manifest();delete missingRouter.failover.router;
+ assert.throws(()=>validateContract(missingRouter,missingRouter.repository,providerSet),e=>e.code==="failover_invalid");
+ const strayOrigin=manifest();strayOrigin.failover.stable_origin="https://example.net";
+ assert.throws(()=>validateContract(strayOrigin,strayOrigin.repository,providerSet),e=>e.code==="stable_origin_without_router");
+ const badRunbook=manifest();badRunbook.failover.runbook="https://private.example/runbook";
+ assert.throws(()=>validateContract(badRunbook,badRunbook.repository,providerSet),e=>e.code==="runbook_invalid");
+ const documented=manifest();documented.failover.runbook="docs/FAILOVER.md";
+ assert.equal(validateContract(documented,documented.repository,providerSet).failover.runbook,"docs/FAILOVER.md");
+});
+test("Automatic failover requires a same-release standby on another provider",()=>{
+ const m=manifest();m.monitoring.mode="active";m.failover={mode:"auto-verified",stateful:false,writer_fencing:false,router:"verified-external",stable_origin:"https://stable.example.net"};
+ m.deployments=[endpoint("first","primary","netlify"),{...endpoint("second","standby","netlify"),origin:"https://standby.example.net"}];
+ assert.throws(()=>validateContract(m,m.repository,providerSet),e=>e.code==="auto_warm_standby_required");
+ m.deployments[1].provider="deno-deploy";m.deployments[1].release_sha="b".repeat(40);
+ assert.throws(()=>validateContract(m,m.repository,providerSet),e=>e.code==="auto_warm_standby_required");
+ m.deployments[1].release_sha=m.deployments[0].release_sha;
+ assert.equal(validateContract(m,m.repository,providerSet).failover.mode,"auto-verified");
+});
+
+test("Published schema retains the runtime contract boundaries",()=>{
+ const schema=load("schemas/deployment-contract.schema.json");
+ assert.equal(schema.$schema,"https://json-schema.org/draft/2020-12/schema");
+ assert(schema.properties.failover.required.includes("router"));
+ const runbook=new RegExp(schema.properties.failover.properties.runbook.pattern);
+ assert(runbook.test("docs/FAILOVER.md"));
+ assert(runbook.test(".github/operations/failover.md"));
+ assert(!runbook.test("https://private.example/runbook"));
+ const origin=new RegExp(schema.properties.deployments.items.properties.origin.pattern);
+ assert(origin.test("https://app.example.net"));
+ assert(!origin.test("http://app.example.net"));
+ assert(!origin.test("https://app.example.net/admin"));
+ assert.equal(schema.allOf.length,4);
 });

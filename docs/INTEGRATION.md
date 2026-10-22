@@ -2,6 +2,12 @@
 
 **All repositories except the four oldest get one manifest.** Libraries, research prototypes, infrastructure policies and empty repositories should remain inventory-only until they have actual deployable software. Never create a fake health endpoint.
 
+## Version 1 contract invariants
+
+The JSON Schema and runtime validator are both authoritative. A contract is rejected unless it is closed to unknown fields, belongs to the repository being validated, retains the zero-dollar budget, and declares an explicit router state. Public origins must be credential-free HTTPS origins with no path, query, fragment, IP literal or private hostname. Runbooks are repository-relative Markdown files under `docs/` or `.github/`.
+
+`inventory` is the default and makes no availability claim. An `active` contract has exactly one primary; every declared deployment has an exact 40-character release SHA, confirmed zero-cost quota, a unique origin and at least one exact readiness JSON assertion. `auto-verified` additionally requires a verified external stable origin and a warm, preprovisioned, quota-verified standby on a different provider at the primary's exact release. Stateful automatic failover also requires writer fencing. These declarations establish eligibility only; they do not execute a promotion.
+
 1. Add the file `.github/deployment-monitor.json`, replacing `neophilism/YOUR-REPO` with the **exact** GitHub repository full name. Set initial kind conservatively; the source owner can classify it later.
 2. Add `.github/workflows/deployment-monitor-contract.yml` invoking the shared DDM validator, or use your existing workflow to call `node src/cli.mjs validate-client`.
 3. When a deployment exists, make the app expose a credential-free *readiness* endpoint that confirms real dependencies and release identity, not just a process returning HTTP 200. A static site may instead use its immutable release marker.

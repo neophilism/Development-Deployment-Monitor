@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-22T17:36:00Z",
+  "observedAt": "2026-10-22T17:44:30Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -73,7 +73,9 @@
       "id": "DDM-003",
       "title": "Per-repository deployment contract schema",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        10
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
@@ -1017,6 +1019,18 @@
       "mergedAt": "2026-10-22T17:34:59Z",
       "closedAt": "2026-10-22T17:34:59Z",
       "draft": false
+    },
+    {
+      "id": 4971641849,
+      "number": 10,
+      "title": "DDM-003: Harden per-repository deployment contracts",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/10",
+      "createdAt": "2026-10-22T17:43:57Z",
+      "updatedAt": "2026-10-22T17:43:57Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "draft": true
     }
   ]
 }
