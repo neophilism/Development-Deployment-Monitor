@@ -52,7 +52,7 @@ export function validateContract(o,expectedRepo,approvedProviders){
     origins.add(origin);
     check(typeof d.ready_path==="string"&&/^\/[^?#]*$/.test(d.ready_path)&&d.ready_path.length<=180,"ready_path_invalid");
     check(Number.isInteger(d.expected_status)&&d.expected_status>=200&&d.expected_status<=299,"ready_status_invalid");
-    check(["primary","standby"].includes(d.role)&&isObject(d.ready_json)&&Object.keys(d.ready_json).length>0,"deployment_role_or_ready_json_invalid");
+    check(["primary","standby"].includes(d.role)&&isObject(d.ready_json)&&Object.keys(d.ready_json).length>0&&Object.keys(d.ready_json).length<=20,"deployment_role_or_ready_json_invalid");
     for(const [k,v] of Object.entries(d.ready_json))
       check(/^[A-Za-z][\w.]{0,75}$/.test(k)&&["string","number","boolean"].includes(typeof v)&&Number.isFinite(typeof v==="number"?v:0),"ready_json_invalid");
     if(d.release_sha!==undefined)check(typeof d.release_sha==="string"&&/^[a-f0-9]{40}$/.test(d.release_sha),"release_sha_invalid");
