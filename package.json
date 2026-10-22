@@ -13,6 +13,7 @@
     "monitor:scan": "node src/cli.mjs scan",
     "report:build": "node src/generate-report.mjs",
     "discover:check": "node src/discover.mjs",
-    "db:seed:generate": "node src/seed-inventory.mjs"
+    "db:seed:generate": "node src/seed-inventory.mjs",
+    "providers:check": "node scripts/validate-provider-catalog.mjs"
   }
 }
