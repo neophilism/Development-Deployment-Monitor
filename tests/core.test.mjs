@@ -68,3 +68,34 @@ test("A matching readiness JSON is healthy",async()=>{
  const transport=async()=>new Response(JSON.stringify({status:"ready"}),{status:200,headers:{"content-type":"application/json"}});
  assert.equal((await probeDeployment(d,{transport})).ok,true);
 });
+
+test("Active contracts require one evidenced primary and unique public origins",()=>{
+ const m=manifest();m.monitoring.mode="active";
+ m.deployments=[endpoint("first","primary","netlify")];
+ assert.equal(validateContract(m,m.repository,providerSet).deployments.length,1);
+ const missingRelease=structuredClone(m);delete missingRelease.deployments[0].release_sha;
+ assert.throws(()=>validateContract(missingRelease,m.repository,providerSet),e=>e.code==="active_evidence_required");
+ const duplicatePrimary=structuredClone(m);duplicatePrimary.deployments.push({...endpoint("second","primary","deno-deploy"),origin:"https://other.example.net"});
+ assert.throws(()=>validateContract(duplicatePrimary,m.repository,providerSet),e=>e.code==="active_primary_required");
+ const duplicateOrigin=structuredClone(m);duplicateOrigin.deployments.push(endpoint("second","standby","deno-deploy"));
+ assert.throws(()=>validateContract(duplicateOrigin,m.repository,providerSet),e=>e.code==="deployment_origin_duplicate");
+});
+test("Router and runbook fields are explicit and public-safe",()=>{
+ const missingRouter=manifest();delete missingRouter.failover.router;
+ assert.throws(()=>validateContract(missingRouter,missingRouter.repository,providerSet),e=>e.code==="failover_invalid");
+ const strayOrigin=manifest();strayOrigin.failover.stable_origin="https://example.net";
+ assert.throws(()=>validateContract(strayOrigin,strayOrigin.repository,providerSet),e=>e.code==="stable_origin_without_router");
+ const badRunbook=manifest();badRunbook.failover.runbook="https://private.example/runbook";
+ assert.throws(()=>validateContract(badRunbook,badRunbook.repository,providerSet),e=>e.code==="runbook_invalid");
+ const documented=manifest();documented.failover.runbook="docs/FAILOVER.md";
+ assert.equal(validateContract(documented,documented.repository,providerSet).failover.runbook,"docs/FAILOVER.md");
+});
+test("Automatic failover requires a same-release standby on another provider",()=>{
+ const m=manifest();m.monitoring.mode="active";m.failover={mode:"auto-verified",stateful:false,writer_fencing:false,router:"verified-external",stable_origin:"https://stable.example.net"};
+ m.deployments=[endpoint("first","primary","netlify"),{...endpoint("second","standby","netlify"),origin:"https://standby.example.net"}];
+ assert.throws(()=>validateContract(m,m.repository,providerSet),e=>e.code==="auto_warm_standby_required");
+ m.deployments[1].provider="deno-deploy";m.deployments[1].release_sha="b".repeat(40);
+ assert.throws(()=>validateContract(m,m.repository,providerSet),e=>e.code==="auto_warm_standby_required");
+ m.deployments[1].release_sha=m.deployments[0].release_sha;
+ assert.equal(validateContract(m,m.repository,providerSet).failover.mode,"auto-verified");
+});
