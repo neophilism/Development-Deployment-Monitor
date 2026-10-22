@@ -24,7 +24,10 @@ test("local validator fails closed for malformed JSON and oversized or linked in
   await assert.rejects(validateContractFile(malformed,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_json_invalid");
   const oversized=join(dir,"oversized.json");
   await writeFile(oversized," ".repeat(64*1024+1));
-  await assert.rejects(validateContractFile(oversized,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");\n  const linked=join(dir,"linked.json");\n  await symlink(fixture,linked);\n  await assert.rejects(validateContractFile(linked,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");
+  await assert.rejects(validateContractFile(oversized,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");
+  const linked=join(dir,"linked.json");
+  await symlink(fixture,linked);
+  await assert.rejects(validateContractFile(linked,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");
 });
 
 test("local validator rejects repository mismatch and unknown providers",async t=>{
