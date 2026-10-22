@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "repository": "neophilism/Development-Deployment-Monitor",
+  "kind": "control-plane",
+  "monitoring": {
+    "mode": "inventory",
+    "description": "Source contract only; no live deployment is asserted."
+  },
+  "budget": {
+    "monthly_usd_max": 0,
+    "allow_billable_fallback": false
+  },
+  "failover": {
+    "mode": "disabled",
+    "stateful": false,
+    "writer_fencing": false,
+    "router": "none"
+  },
+  "deployments": []
+}

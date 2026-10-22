@@ -8,8 +8,18 @@ The JSON Schema and runtime validator are both authoritative. A contract is reje
 
 `inventory` is the default and makes no availability claim. An `active` contract has exactly one primary; every declared deployment has an exact 40-character release SHA, confirmed zero-cost quota, a unique origin and at least one exact readiness JSON assertion. `auto-verified` additionally requires a verified external stable origin and a warm, preprovisioned, quota-verified standby on a different provider at the primary's exact release. Stateful automatic failover also requires writer fencing. These declarations establish eligibility only; they do not execute a promotion.
 
+## Local validation and CI
+
+Validate a contract before opening a pull request with:
+
+```sh
+npm run contract:check -- .github/deployment-monitor.json neophilism/YOUR-REPO
+```
+
+The command is read-only and zero dependency. It accepts exactly one bounded regular JSON file, binds the manifest to the expected repository, and uses DDM's reviewed provider catalog. It returns a nonzero status for malformed JSON, linked or oversized input, unknown providers, unsafe origins, nonzero budget, repository mismatch, or any other contract violation. It never probes a URL, reads credentials, creates provider resources, changes routing, or authorizes spending. The reusable workflow invokes this same command so local and hosted validation share one boundary.
+
 1. Add the file `.github/deployment-monitor.json`, replacing `neophilism/YOUR-REPO` with the **exact** GitHub repository full name. Set initial kind conservatively; the source owner can classify it later.
-2. Add `.github/workflows/deployment-monitor-contract.yml` invoking the shared DDM validator, or use your existing workflow to call `node src/cli.mjs validate-client`.
+2. Add `.github/workflows/deployment-monitor-contract.yml` invoking the shared DDM validator. Custom integrations must call `scripts/validate-contract.mjs` with the manifest path and exact repository name; do not duplicate validation rules.
 3. When a deployment exists, make the app expose a credential-free *readiness* endpoint that confirms real dependencies and release identity, not just a process returning HTTP 200. A static site may instead use its immutable release marker.
 4. Register the **public HTTPS origin** and expected response fields in the source manifest, then add a matching entry to DDM `registry/approved-origins.json` in a reviewed PR. Do not add private network URLs, auth tokens, full connection strings or arbitrary query parameters.
 5. Run a real external probe from more than one network, confirm end-user login/API authorization checks, and record exact release revision. Only then change `monitoring.mode` to `active`.

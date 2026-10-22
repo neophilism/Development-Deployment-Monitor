@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: '22'
       - name: Validate contract (read only)
-        run: node .ddm-validator/src/cli.mjs validate-client .github/deployment-monitor.json "$GITHUB_REPOSITORY"
+        run: node .ddm-validator/scripts/validate-contract.mjs .github/deployment-monitor.json "$GITHUB_REPOSITORY"
