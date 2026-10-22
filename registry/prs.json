@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-20T19:37:36Z",
+  "observedAt": "2026-10-22T17:34:00Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -17,7 +17,9 @@
       "id": "DDM-001",
       "title": "Repository inventory and four-oldest exclusion lock",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        1
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [],
@@ -25,7 +27,15 @@
         "Repository inventory and four-oldest exclusion lock"
       ],
       "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
-      "verification": [],
+      "verification": [
+        {
+          "status": "verified",
+          "headSha": "9bc5b389df028a34e0c1d148b52309757674f54a",
+          "mergeSha": "48ea815e633bd980aebe9c982c2989be57973b7c",
+          "exactHeadRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/39486600118",
+          "mergedMainRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/39486652135"
+        }
+      ],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -34,7 +44,9 @@
       "id": "DDM-002",
       "title": "Shared PR registry and agent constraints",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        9
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
@@ -973,5 +985,30 @@
       "externalPrerequisites": []
     }
   ],
-  "pullRequests": []
+  "pullRequests": [
+    {
+      "id": 4941526868,
+      "number": 1,
+      "title": "DDM-001: Found Development Deployment Monitor for 58 repositories",
+      "state": "closed",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/1",
+      "createdAt": "2026-10-20T19:48:32Z",
+      "updatedAt": "2026-10-20T19:48:55Z",
+      "mergedAt": "2026-10-20T19:48:55Z",
+      "closedAt": "2026-10-20T19:48:55Z",
+      "draft": false
+    },
+    {
+      "id": 4971511726,
+      "number": 9,
+      "title": "DDM-002: Enforce canonical PR evidence integrity",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/9",
+      "createdAt": "2026-10-22T17:33:29Z",
+      "updatedAt": "2026-10-22T17:33:29Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "draft": false
+    }
+  ]
 }

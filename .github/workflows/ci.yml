@@ -19,15 +19,8 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run inventory:check
-      - name: Verify canonical PR registry count and immutable IDs
-        run: |
-          node --input-type=module -e '
-            import fs from "node:fs";
-            const p=JSON.parse(fs.readFileSync("registry/prs.json","utf8"));
-            if(p.repository!=="neophilism/Development-Deployment-Monitor"||p.schemaVersion!==1||p.plannedPrCount!==p.units.length)process.exit(1);
-            if(new Set(p.units.map(x=>x.id)).size!==p.units.length)process.exit(1);
-            if(!p.units.every(x=>Array.isArray(x.prs)&&Array.isArray(x.dependsOn)&&x.origin))process.exit(1);
-          '
+      - name: Verify canonical PR registry and evidence references
+        run: node scripts/validate-pr-registry.mjs
       - name: Validate and exercise SQLite / Cloudflare D1 telemetry schema
         run: |
           python3 - <<'PY'
@@ -53,7 +46,6 @@ jobs:
               raise AssertionError('Concurrent active origins were allowed')
           except sqlite3.IntegrityError:
               pass
-          # In a fresh SQLite connection, verify the safe historical D1 seed.
           db=sqlite3.connect(':memory:')
           db.executescript(Path('db/sqlite/001_init.sql').read_text())
           db.executescript(Path('db/sqlite/002_seed_inventory.sql').read_text())
