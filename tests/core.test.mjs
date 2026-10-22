@@ -99,3 +99,18 @@ test("Automatic failover requires a same-release standby on another provider",()
  m.deployments[1].release_sha=m.deployments[0].release_sha;
  assert.equal(validateContract(m,m.repository,providerSet).failover.mode,"auto-verified");
 });
+
+test("Published schema retains the runtime contract boundaries",()=>{
+ const schema=load("schemas/deployment-contract.schema.json");
+ assert.equal(schema.$schema,"https://json-schema.org/draft/2020-12/schema");
+ assert(schema.properties.failover.required.includes("router"));
+ const runbook=new RegExp(schema.properties.failover.properties.runbook.pattern);
+ assert(runbook.test("docs/FAILOVER.md"));
+ assert(runbook.test(".github/operations/failover.md"));
+ assert(!runbook.test("https://private.example/runbook"));
+ const origin=new RegExp(schema.properties.deployments.items.properties.origin.pattern);
+ assert(origin.test("https://app.example.net"));
+ assert(!origin.test("http://app.example.net"));
+ assert(!origin.test("https://app.example.net/admin"));
+ assert.equal(schema.allOf.length,4);
+});
