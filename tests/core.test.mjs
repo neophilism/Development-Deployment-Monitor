@@ -9,7 +9,7 @@ const providerSet=new Set(load("registry/providers.json").providers.map(x=>x.id)
 const manifest=()=>({schema_version:1,repository:"neophilism/Boardroom",kind:"web-app",
  monitoring:{mode:"inventory"},budget:{monthly_usd_max:0,allow_billable_fallback:false},
  failover:{mode:"disabled",stateful:true,writer_fencing:false,router:"none"},deployments:[]});
-const endpoint=(id,role,provider)=>({id,provider,origin:"https://example.net",ready_path:"/api/ready",expected_status:200,role,ready_json:{status:"ready"},release_sha:"a".repeat(40),preprovisioned:true,warm:true,quota_verified:true});
+const endpoint=(id,role,provider)=>({id,provider,origin:`https://${id}.example.net`,ready_path:"/api/ready",expected_status:200,role,ready_json:{status:"ready"},release_sha:"a".repeat(40),preprovisioned:true,warm:true,quota_verified:true});
 test("Four oldest exclusions and all 58 project entries match audited inventory",()=>{
  const x=validateInventory(load("registry/repositories.json"));
  assert.equal(x.repositories.length,58);
@@ -77,7 +77,7 @@ test("Active contracts require one evidenced primary and unique public origins",
  assert.throws(()=>validateContract(missingRelease,m.repository,providerSet),e=>e.code==="active_evidence_required");
  const duplicatePrimary=structuredClone(m);duplicatePrimary.deployments.push({...endpoint("second","primary","deno-deploy"),origin:"https://other.example.net"});
  assert.throws(()=>validateContract(duplicatePrimary,m.repository,providerSet),e=>e.code==="active_primary_required");
- const duplicateOrigin=structuredClone(m);duplicateOrigin.deployments.push(endpoint("second","standby","deno-deploy"));
+ const duplicateOrigin=structuredClone(m);duplicateOrigin.deployments.push({...endpoint("second","standby","deno-deploy"),origin:m.deployments[0].origin});
  assert.throws(()=>validateContract(duplicateOrigin,m.repository,providerSet),e=>e.code==="deployment_origin_duplicate");
 });
 test("Router and runbook fields are explicit and public-safe",()=>{
