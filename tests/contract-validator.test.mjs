@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {mkdtemp,rm,writeFile} from "node:fs/promises";
+import {mkdtemp,readFile,rm,symlink,writeFile} from "node:fs/promises";
 import {spawnSync} from "node:child_process";
 import {tmpdir} from "node:os";
 import {join} from "node:path";
@@ -24,14 +24,14 @@ test("local validator fails closed for malformed JSON and oversized or linked in
   await assert.rejects(validateContractFile(malformed,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_json_invalid");
   const oversized=join(dir,"oversized.json");
   await writeFile(oversized," ".repeat(64*1024+1));
-  await assert.rejects(validateContractFile(oversized,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");
+  await assert.rejects(validateContractFile(oversized,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");\n  const linked=join(dir,"linked.json");\n  await symlink(fixture,linked);\n  await assert.rejects(validateContractFile(linked,"neophilism/Development-Deployment-Monitor"),error=>error.code==="manifest_unsafe");
 });
 
 test("local validator rejects repository mismatch and unknown providers",async t=>{
   await assert.rejects(validateContractFile(fixture,"neophilism/Other"),error=>error.code==="repository_mismatch");
   const dir=await mkdtemp(join(tmpdir(),"ddm-contract-"));
   t.after(()=>rm(dir,{recursive:true,force:true}));
-  const active=JSON.parse(await (await import("node:fs/promises")).readFile(fixture,"utf8"));
+  const active=JSON.parse(await readFile(fixture,"utf8"));
   active.monitoring.mode="active";
   active.deployments=[{
     id:"primary",provider:"not-approved",origin:"https://app.example.net",ready_path:"/ready",
