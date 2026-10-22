@@ -19,6 +19,7 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run inventory:check
+      - run: npm run providers:check
       - name: Verify canonical PR registry and evidence references
         run: node scripts/validate-pr-registry.mjs
       - name: Validate and exercise SQLite / Cloudflare D1 telemetry schema
