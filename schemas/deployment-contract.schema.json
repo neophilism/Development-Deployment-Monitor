@@ -111,7 +111,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 180,
-          "pattern": "^(docs|\\\\.github)/[A-Za-z0-9_./-]+\\\\.md$"
+          "pattern": "^(docs|\\.github)/[A-Za-z0-9_./-]+\\.md$"
         }
       }
     },
