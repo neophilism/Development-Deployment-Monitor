@@ -58,3 +58,10 @@ jobs:
 ```
 
 The shared workflow does **not** create any hosting account, runtime instance, billing subscription or database. It validates the public-safe contract and provides a stable handoff to DDM. On a failover request DDM must obtain independently verified provider permissions and runtime secrets via the authorized deployment adapter.
+
+
+## Central target approval
+
+`registry/approved-origins.json` is a closed, review-only allowlist. Each entry binds exactly one repository deployment ID to one reviewed provider, credential-free HTTPS origin and readiness path. The registry rejects unknown fields, unsafe or duplicate origins, unknown providers, duplicate repository/deployment keys, query strings and fragments. A client manifest is probe-eligible only when all five bound fields match exactly.
+
+An empty approval registry is valid and authorizes no network requests. Adding a manifest URL does not approve it, and changing any bound field requires a separate central registry review. Approval permits only the bounded read-only readiness request; it does not assert health, activate monitoring, authorize deployment or permit spending.

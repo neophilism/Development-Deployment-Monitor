@@ -2,6 +2,7 @@
 import {readFile,appendFile} from "node:fs/promises";
 import {resolve} from "node:path";
 import {validateContract,validateInventory} from "./contract.mjs";
+import {findExactApproval,validateApprovalRegistry} from "./approvals.mjs";
 import {probeRepeated} from "./probe.mjs";
 import {planFailover} from "./failover.mjs";
 
@@ -28,8 +29,7 @@ if(arg==="inventory"){
   console.log("Manifest contract verified for "+process.argv[4]);
 }else if(arg==="scan"){
   validateInventory(inventory);
-  const approvals=await load("registry/approved-origins.json");
-  const pinned=new Map(approvals.approvals.map(a=>[a.repository+"#"+a.id,a]));
+  const approvals=validateApprovalRegistry(await load("registry/approved-origins.json"),known);
   const token=process.env.GITHUB_TOKEN;
   const results=[];
   const jobs=[...inventory.repositories];
@@ -49,8 +49,8 @@ if(arg==="inventory"){
         const statuses={};
         let monitored=0;
         for(const d of manifest.deployments){
-          const a=pinned.get(entry.repository+"#"+d.id);
-          if(!a||a.origin!==d.origin||a.ready_path!==d.ready_path||a.provider!==d.provider){
+          const a=findExactApproval(approvals,{repository:entry.repository,...d});
+          if(!a){
             statuses[d.id]={ok:false,reason:"origin_not_centrally_approved"};continue;
           }
           const evidence=await probeRepeated(d,{count:3});
