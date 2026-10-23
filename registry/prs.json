@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-23T18:57:52Z",
+  "observedAt": "2026-10-23T19:10:29Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -173,7 +173,15 @@
         "Approval-only HTTPS target registry"
       ],
       "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
-      "verification": [],
+      "verification": [
+        {
+          "status": "verified",
+          "headSha": "c5099ad8a86e6e48f6dea872b76a65210a62290f",
+          "mergeSha": "57c2628b1a1764cc83a19d4b1f642cc92306e199",
+          "exactHeadRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40007711607",
+          "mergedMainRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40009303897"
+        }
+      ],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -1090,13 +1098,13 @@
       "id": 4987831236,
       "number": 13,
       "title": "DDM-006: Enforce approval-only HTTPS targets",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/13",
       "createdAt": "2026-10-23T18:57:52Z",
-      "updatedAt": "2026-10-23T18:58:10Z",
-      "mergedAt": null,
-      "closedAt": null,
-      "draft": true
+      "updatedAt": "2026-10-23T19:10:29Z",
+      "mergedAt": "2026-10-23T19:10:29Z",
+      "closedAt": "2026-10-23T19:10:29Z",
+      "draft": false
     }
   ]
 }
