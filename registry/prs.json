@@ -1087,13 +1087,13 @@
       "draft": false
     },
     {
-      "id": 4988220827,
+      "id": 4987831236,
       "number": 13,
       "title": "DDM-006: Enforce approval-only HTTPS targets",
       "state": "open",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/13",
       "createdAt": "2026-10-23T18:57:52Z",
-      "updatedAt": "2026-10-23T18:57:52Z",
+      "updatedAt": "2026-10-23T18:58:10Z",
       "mergedAt": null,
       "closedAt": null,
       "draft": true
