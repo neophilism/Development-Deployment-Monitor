@@ -51,10 +51,10 @@ if(arg==="inventory"){
         for(const d of manifest.deployments){
           const a=findExactApproval(approvals,{repository:entry.repository,...d});
           if(!a){
-            statuses[d.id]={ok:false,reason:"origin_not_centrally_approved"};continue;
+            statuses[d.id]={ok:false,reason:"origin_not_centrally_approved",centrallyApproved:false};continue;
           }
           const evidence=await probeRepeated(d,{count:3});
-          statuses[d.id]={ok:evidence.ok,reason:evidence.ok?"verified":"probe_failed"};
+          statuses[d.id]={ok:evidence.ok,reason:evidence.ok?"verified":"probe_failed",centrallyApproved:true};
           monitored++;
         }
         const primary=manifest.deployments.find(d=>d.role==="primary");
