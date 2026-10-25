@@ -205,10 +205,7 @@
         "Fail closed without logging response bodies; repeated same-runner samples remain distinct from the independent multi-region quorum planned by DDM-014."
       ],
       "acceptanceCriteria": "Complete safe read-only readiness probing with exact response checks, automated failure-boundary tests, operational documentation, exact-head CI validation and recorded acceptance evidence.",
-      "verification": [
-        "Automated tests cover the request method and redirect policy, malformed targets, status/content-type/JSON failures, exact nested predicates, oversized declared and streamed bodies, and repeated observations.",
-        "Hosted full-suite validation and merged-main acceptance evidence are required before completion."
-      ],
+      "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -1115,9 +1112,14 @@
     },
     {
       "number": 14,
-      "unitId": "DDM-007",
       "state": "open",
-      "merged": false
+      "title": "DDM-007: Harden exact read-only readiness probes",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/14",
+      "draft": true,
+      "createdAt": "2026-10-25T08:57:37Z",
+      "updatedAt": "2026-10-25T08:58:09Z",
+      "mergedAt": null,
+      "closedAt": null
     }
   ]
 }
