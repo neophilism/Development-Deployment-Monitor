@@ -269,7 +269,15 @@
         "Provide a least-privilege reusable contract-validation workflow and documented operational limitations and rollback."
       ],
       "acceptanceCriteria": "Complete strict manifest-response decoding, authorization-negative and failure-boundary tests, least-privilege central and reusable workflows, deterministic status reporting, operational documentation, exact-head CI validation and recorded acceptance evidence.",
-      "verification": [],
+      "verification": [
+        {
+          "status": "verified",
+          "headSha": "909f0066410a3ae495955ee1d2fe86d023e35909",
+          "mergeSha": "a3b6fb08f502a49a6b0965427a4c0db7964bd9e7",
+          "exactHeadRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40179861082",
+          "mergedMainRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40179921473"
+        }
+      ],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -1160,13 +1168,13 @@
     {
       "number": 16,
       "title": "DDM-009: Harden central read-only Actions scanning",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/16",
       "createdAt": "2026-10-25T09:14:35Z",
-      "updatedAt": "2026-10-25T09:14:35Z",
-      "mergedAt": null,
-      "closedAt": null,
-      "draft": true
+      "updatedAt": "2026-10-25T09:15:51Z",
+      "mergedAt": "2026-10-25T09:15:51Z",
+      "closedAt": "2026-10-25T09:15:51Z",
+      "draft": false
     }
   ]
 }
