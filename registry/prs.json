@@ -253,7 +253,9 @@
       "id": "DDM-009",
       "title": "Central read-only GitHub Actions scanning and reusable CI",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        16
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
@@ -261,9 +263,12 @@
         "DDM-007"
       ],
       "scope": [
-        "Central read-only GitHub Actions scanning and reusable CI"
+        "Run bounded read-only scans against exact default-branch deployment contracts through a fixed GitHub API origin.",
+        "Keep missing, unavailable, invalid, inventory-only, awaiting-approval, ready and degraded states distinct without exposing response bodies or credentials.",
+        "Probe only centrally approved targets and preserve zero authority for deployment, spending, routing, writer fencing or automatic failover.",
+        "Provide a least-privilege reusable contract-validation workflow and documented operational limitations and rollback."
       ],
-      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "acceptanceCriteria": "Complete strict manifest-response decoding, authorization-negative and failure-boundary tests, least-privilege central and reusable workflows, deterministic status reporting, operational documentation, exact-head CI validation and recorded acceptance evidence.",
       "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
@@ -1151,6 +1156,18 @@
       "mergedAt": "2026-10-25T09:04:58Z",
       "closedAt": "2026-10-25T09:04:58Z",
       "draft": false
+    },
+    {
+      "number": 16,
+      "title": "DDM-009: Harden central read-only Actions scanning",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/16",
+      "createdAt": "2026-10-25T09:14:35Z",
+      "updatedAt": "2026-10-25T09:14:35Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "draft": true
     }
   ]
 }
+
