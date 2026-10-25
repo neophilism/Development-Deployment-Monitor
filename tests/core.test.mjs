@@ -41,7 +41,7 @@ test("An unverified primary may not trigger an automatic promotion",()=>{
  const m=manifest();m.monitoring.mode="active";m.failover={mode:"auto-verified",stateful:true,writer_fencing:true,router:"verified-external",stable_origin:"https://boardroom.example.net"};
  m.deployments=[endpoint("first","primary","netlify"),endpoint("second","standby","deno-deploy")];
  validateContract(m,m.repository,providerSet);
- const s={first:{ok:false},second:{ok:true}};
+ const s={first:{ok:false,centrallyApproved:true},second:{ok:true,centrallyApproved:true}};
  assert.equal(planFailover(m,s,{unhealthySamples:3,independentMonitorQuorum:false,routingAuthority:true,exclusiveWriterLease:true}).action,"none");
  assert.equal(planFailover(m,s,{unhealthySamples:3,independentMonitorQuorum:true,routingAuthority:false,exclusiveWriterLease:true}).action,"none");
  assert.equal(planFailover(m,s,{unhealthySamples:3,independentMonitorQuorum:true,routingAuthority:true,exclusiveWriterLease:false}).action,"none");
@@ -53,9 +53,9 @@ test("A standby must be same release, a different provider, ready and zero-cost 
  m.deployments=[endpoint("first","primary","netlify"),endpoint("second","standby","deno-deploy")];
  const opts={unhealthySamples:3,independentMonitorQuorum:true,routingAuthority:true};
  m.deployments[1].release_sha="b".repeat(40);
- assert.equal(planFailover(m,{first:{ok:false},second:{ok:true}},opts).action,"none");
+ assert.equal(planFailover(m,{first:{ok:false,centrallyApproved:true},second:{ok:true,centrallyApproved:true}},opts).action,"none");
  m.deployments[1].release_sha="a".repeat(40);m.deployments[1].quota_verified=false;
- assert.equal(planFailover(m,{first:{ok:false},second:{ok:true}},opts).action,"none");
+ assert.equal(planFailover(m,{first:{ok:false,centrallyApproved:true},second:{ok:true,centrallyApproved:true}},opts).action,"none");
 });
 test("Readiness validates an exact application JSON field, never just HTTP 200",async()=>{
  const d=endpoint("first","primary","netlify");
