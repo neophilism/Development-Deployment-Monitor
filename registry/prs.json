@@ -222,16 +222,20 @@
       "id": "DDM-008",
       "title": "Hardened failover policy planner, default non-executing",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        15
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
         "DDM-007"
       ],
       "scope": [
-        "Hardened failover policy planner, default non-executing"
+        "Return immutable, explicitly non-executing failover decisions from validated policy and observation evidence.",
+        "Require active auto-verified policy, zero-dollar constraints, independent failure quorum, routing authority, central target approval, one unhealthy primary and a healthy same-release standby on another provider.",
+        "Require writer fencing and an exclusive lease for stateful proposals; select eligible candidates deterministically without mutating input."
       ],
-      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "acceptanceCriteria": "Complete fail-closed non-executing failover policy planning, safety-gate and authorization-negative tests, operational documentation, exact-head CI validation and recorded acceptance evidence.",
       "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
@@ -1128,6 +1132,17 @@
       "updatedAt": "2026-10-25T09:00:03Z",
       "mergedAt": "2026-10-25T09:00:03Z",
       "closedAt": "2026-10-25T09:00:03Z"
+    },
+    {
+      "number": 15,
+      "title": "DDM-008: Harden the non-executing failover planner",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/15",
+      "createdAt": "2026-10-25T09:03:50Z",
+      "updatedAt": "2026-10-25T09:03:50Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "draft": true
     }
   ]
 }
