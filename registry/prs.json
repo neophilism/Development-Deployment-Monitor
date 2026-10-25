@@ -286,7 +286,9 @@
       "id": "DDM-010",
       "title": "Integrate all eligible 58 repositories, no deployment assumed",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        17
+      ],
       "priority": "P0",
       "phase": "Enrollment",
       "dependsOn": [
@@ -294,9 +296,11 @@
         "DDM-009"
       ],
       "scope": [
-        "Integrate all eligible 58 repositories, no deployment assumed"
+        "Ensure every eligible repository has a repository-bound public-safe deployment contract and reusable central validation workflow.",
+        "Keep unverified or unclassified projects inventory-only with a hard zero-dollar budget, no endpoint and disabled failover.",
+        "Reconcile existing integration pull requests before creating missing enrollment work and do not alter explicitly excluded repositories."
       ],
-      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "acceptanceCriteria": "All in-scope repositories are enrolled on their default branches through validated inventory-only contracts and least-privilege reusable CI; all contributing pull requests pass required exact-head and merged-branch checks; exclusions remain untouched; canonical evidence and rollback are documented without claiming a deployment.",
       "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
@@ -1175,6 +1179,17 @@
       "mergedAt": "2026-10-25T09:15:51Z",
       "closedAt": "2026-10-25T09:15:51Z",
       "draft": false
+    },
+    {
+      "number": 17,
+      "title": "DDM-010: Complete portfolio inventory-only enrollment",
+      "state": "open",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/17",
+      "createdAt": "2026-10-25T09:26:34Z",
+      "updatedAt": "2026-10-25T09:26:34Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "draft": true
     }
   ]
 }
