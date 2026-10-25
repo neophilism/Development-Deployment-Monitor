@@ -59,9 +59,18 @@ jobs:
 
 The shared workflow does **not** create any hosting account, runtime instance, billing subscription or database. It validates the public-safe contract and provides a stable handoff to DDM. On a failover request DDM must obtain independently verified provider permissions and runtime secrets via the authorized deployment adapter.
 
+## Central read-only scan
+
+DDM's scheduled `Portfolio deployment availability (read-only)` workflow is a bounded audit fallback, not an uptime guarantee. It checks the canonical repository inventory with `contents: read`, does not persist checkout credentials, and requests only `.github/deployment-monitor.json` from each exact default branch. The scanner follows no redirects, accepts at most 16 KiB of strictly encoded manifest content, validates every active contract, and probes only targets that exactly match the central approval registry.
+
+`not_integrated`, `manifest_unavailable`, `invalid_or_unavailable_contract`, `inventory_only`, and `awaiting_approved_endpoint` are explicit non-health states. Only an approved active primary with exact readiness evidence is `ready`; a failed approved primary is `degraded` and fails the workflow. Missing approval never becomes outage evidence. Scanner results contain status categories only, not manifest bodies, response bodies, credentials or provider error details.
+
+The reusable client workflow shares the repository's local contract-validator boundary and has no probe, provider, deployment, billing, DNS or routing permissions. Both workflows are best effort. Roll back DDM-009 by reverting its source and workflow commit; unavailability must be treated as unknown, never as authorization to promote traffic.
+
 
 ## Central target approval
 
 `registry/approved-origins.json` is a closed, review-only allowlist. Each entry binds exactly one repository deployment ID to one reviewed provider, credential-free HTTPS origin and readiness path. The registry rejects unknown fields, unsafe or duplicate origins, unknown providers, duplicate repository/deployment keys, query strings and fragments. A client manifest is probe-eligible only when all five bound fields match exactly.
 
 An empty approval registry is valid and authorizes no network requests. Adding a manifest URL does not approve it, and changing any bound field requires a separate central registry review. Approval permits only the bounded read-only readiness request; it does not assert health, activate monitoring, authorize deployment or permit spending.
+
