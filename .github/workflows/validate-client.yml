@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Check out caller repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Check out central validator
         uses: actions/checkout@v4
         with:
@@ -22,3 +24,4 @@ jobs:
           node-version: '22'
       - name: Validate contract (read only)
         run: node .ddm-validator/scripts/validate-contract.mjs .github/deployment-monitor.json "$GITHUB_REPOSITORY"
+
