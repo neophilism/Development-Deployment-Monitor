@@ -190,7 +190,9 @@
       "id": "DDM-007",
       "title": "Read-only readiness probing with exact response checks",
       "origin": "owner-request-2026-10-20",
-      "prs": [],
+      "prs": [
+        14
+      ],
       "priority": "P0",
       "phase": "Foundation",
       "dependsOn": [
@@ -198,9 +200,11 @@
         "DDM-006"
       ],
       "scope": [
-        "Read-only readiness probing with exact response checks"
+        "Validate centrally approved credential-free HTTPS readiness targets before any request.",
+        "Perform bounded GET-only probes with redirects disabled, strict timeouts, exact expected 2xx status, JSON object requirements and scalar readiness predicates.",
+        "Fail closed without logging response bodies; repeated same-runner samples remain distinct from the independent multi-region quorum planned by DDM-014."
       ],
-      "acceptanceCriteria": "Production evidence, exact source/CI validation, and documented rollback where applicable; no unverified deployment counts as complete.",
+      "acceptanceCriteria": "Complete safe read-only readiness probing with exact response checks, automated failure-boundary tests, operational documentation, exact-head CI validation and recorded acceptance evidence.",
       "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
@@ -1105,6 +1109,17 @@
       "mergedAt": "2026-10-23T19:10:29Z",
       "closedAt": "2026-10-23T19:10:29Z",
       "draft": false
+    },
+    {
+      "number": 14,
+      "state": "open",
+      "title": "DDM-007: Harden exact read-only readiness probes",
+      "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/14",
+      "draft": true,
+      "createdAt": "2026-10-25T08:57:37Z",
+      "updatedAt": "2026-10-25T08:58:09Z",
+      "mergedAt": null,
+      "closedAt": null
     }
   ]
 }
