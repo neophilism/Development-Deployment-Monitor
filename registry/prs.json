@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-25T09:00:17Z",
+  "observedAt": "2026-10-25T09:05:12Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -236,7 +236,15 @@
         "Require writer fencing and an exclusive lease for stateful proposals; select eligible candidates deterministically without mutating input."
       ],
       "acceptanceCriteria": "Complete fail-closed non-executing failover policy planning, safety-gate and authorization-negative tests, operational documentation, exact-head CI validation and recorded acceptance evidence.",
-      "verification": [],
+      "verification": [
+        {
+          "status": "verified",
+          "headSha": "5f4694d81fc49fe58c11f047fe606140240e2ad9",
+          "mergeSha": "f7cfe65b1c4ed9b7d033f6af709d5f483cf2ef67",
+          "exactHeadRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40179122321",
+          "mergedMainRun": "https://github.com/neophilism/Development-Deployment-Monitor/actions/runs/40179170697"
+        }
+      ],
       "contributingPrs": [],
       "externalDependencies": [],
       "externalPrerequisites": []
@@ -1136,13 +1144,13 @@
     {
       "number": 15,
       "title": "DDM-008: Harden the non-executing failover planner",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/15",
       "createdAt": "2026-10-25T09:03:50Z",
-      "updatedAt": "2026-10-25T09:03:50Z",
-      "mergedAt": null,
-      "closedAt": null,
-      "draft": true
+      "updatedAt": "2026-10-25T09:04:58Z",
+      "mergedAt": "2026-10-25T09:04:58Z",
+      "closedAt": "2026-10-25T09:04:58Z",
+      "draft": false
     }
   ]
 }
