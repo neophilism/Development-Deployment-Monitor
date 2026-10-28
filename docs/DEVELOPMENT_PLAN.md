@@ -5,7 +5,7 @@
 ## Phase strategy
 
 - **Foundation:** scope, schema, public-safe approvals, provider classifications, read-only health probes and GitHub CI; no actuation.
-- **Enrollment:** 58 small per-repository contract PRs with a shared CI validation workflow, no DNS/hosting actions. Empty repos get an initial safe manifest, not fabricated deploys.
+- **Enrollment:** Reconcile the rolling eligible repository cohort with small per-repository contract PRs and a shared CI validation workflow; no DNS or hosting actions. Empty repositories are recorded as blockers and do not receive fabricated application code or deployment claims.
 - **Trust and monitoring:** provider-authenticated events, 2+ independent probe networks, durable incident/quota history, split-brain prevention and explicit zero-dollar enforcement.
 - **Routing and stateful operation:** stable-origin router, automatic *preprovisioned* failover in permitted cases, recovery runbooks, fencing epochs, verified endpoint authorization and rollback.
 - **Provider adapters:** one capability-gated adapter per provider. Implement native zero-cost first, cost-risk adapters disabled unless authorized.
@@ -22,7 +22,7 @@
 - **DDM-007 — Read-only readiness probing with exact response checks** (Foundation, P0). Dependencies: DDM-005, DDM-006.
 - **DDM-008 — Hardened failover policy planner, default non-executing** (Foundation, P0). Dependencies: DDM-007.
 - **DDM-009 — Central read-only GitHub Actions scanning and reusable CI** (Foundation, P0). Dependencies: DDM-005, DDM-007.
-- **DDM-010 — Integrate all eligible 58 repositories, no deployment assumed** (Enrollment, P0). Dependencies: DDM-003, DDM-009.
+- **DDM-010 — Integrate the rolling eligible repository cohort, no deployment assumed** (Enrollment, P0). Dependencies: DDM-003, DDM-009.
 - **DDM-011 — Detect repository types automatically without classifying empty stubs as apps** (Enrollment, P1). Dependencies: DDM-010.
 - **DDM-012 — Incremental future GitHub-repository discovery and exclusion enforcement** (Enrollment, P1). Dependencies: DDM-011.
 - **DDM-013 — Test source manifest signature, immutable ref and GitHub App credentials** (Trust, P0). Dependencies: DDM-010.
