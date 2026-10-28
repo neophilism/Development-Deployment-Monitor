@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-25T09:05:12Z",
+  "observedAt": "2026-10-28T06:38:33Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -284,7 +284,7 @@
     },
     {
       "id": "DDM-010",
-      "title": "Integrate all eligible 58 repositories, no deployment assumed",
+      "title": "Integrate the rolling eligible repository cohort, no deployment assumed",
       "origin": "owner-request-2026-10-20",
       "prs": [
         17
@@ -296,11 +296,13 @@
         "DDM-009"
       ],
       "scope": [
-        "Ensure every eligible repository has a repository-bound public-safe deployment contract and reusable central validation workflow.",
+        "Discover the current rolling eligible repository cohort from GitHub and preserve explicit exclusions.",
+        "Ensure every non-empty eligible repository has a repository-bound public-safe deployment contract and least-privilege reusable central validation workflow.",
         "Keep unverified or unclassified projects inventory-only with a hard zero-dollar budget, no endpoint and disabled failover.",
-        "Reconcile existing integration pull requests before creating missing enrollment work and do not alter explicitly excluded repositories."
+        "Record empty repositories without fabricating application code, deployment manifests or operational claims.",
+        "Reconcile existing integration pull requests before creating missing enrollment work."
       ],
-      "acceptanceCriteria": "All in-scope repositories are enrolled on their default branches through validated inventory-only contracts and least-privilege reusable CI; all contributing pull requests pass required exact-head and merged-branch checks; exclusions remain untouched; canonical evidence and rollback are documented without claiming a deployment.",
+      "acceptanceCriteria": "The live rolling cohort is reconciled from GitHub; every non-empty in-scope repository is enrolled on its default branch through a validated inventory-only contract and least-privilege reusable CI; empty repositories and exclusions are explicitly recorded without invented deployment claims; all contributing pull requests pass required exact-head and merged-branch checks; canonical evidence and rollback are documented.",
       "verification": [],
       "contributingPrs": [],
       "externalDependencies": [],
@@ -1193,4 +1195,3 @@
     }
   ]
 }
-
