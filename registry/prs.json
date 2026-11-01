@@ -5,7 +5,7 @@
   "roadmapVersion": 1,
   "planVerified": true,
   "plannedPrCount": 50,
-  "observedAt": "2026-10-25T09:05:12Z",
+  "observedAt": "2026-11-01T20:30:00Z",
   "sourceFiles": [
     "docs/ARCHITECTURE.md",
     "docs/DEVELOPMENT_PLAN.md",
@@ -1090,9 +1090,9 @@
       "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/9",
       "createdAt": "2026-10-22T17:33:29Z",
-      "updatedAt": "2026-10-22T17:34:59Z",
-      "mergedAt": "2026-10-22T17:34:59Z",
-      "closedAt": "2026-10-22T17:34:59Z",
+      "updatedAt": "2026-10-22T17:35:01Z",
+      "mergedAt": "2026-10-22T17:35:00Z",
+      "closedAt": "2026-10-22T17:35:00Z",
       "draft": false
     },
     {
@@ -1144,28 +1144,31 @@
       "draft": false
     },
     {
+      "id": 5003293281,
       "number": 14,
-      "state": "closed",
       "title": "DDM-007: Harden exact read-only readiness probes",
+      "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/14",
-      "draft": false,
       "createdAt": "2026-10-25T08:57:37Z",
       "updatedAt": "2026-10-25T09:00:03Z",
       "mergedAt": "2026-10-25T09:00:03Z",
-      "closedAt": "2026-10-25T09:00:03Z"
+      "closedAt": "2026-10-25T09:00:03Z",
+      "draft": false
     },
     {
+      "id": 5003331632,
       "number": 15,
       "title": "DDM-008: Harden the non-executing failover planner",
       "state": "closed",
       "url": "https://github.com/neophilism/Development-Deployment-Monitor/pull/15",
       "createdAt": "2026-10-25T09:03:50Z",
-      "updatedAt": "2026-10-25T09:04:58Z",
-      "mergedAt": "2026-10-25T09:04:58Z",
-      "closedAt": "2026-10-25T09:04:58Z",
+      "updatedAt": "2026-10-25T09:04:47Z",
+      "mergedAt": "2026-10-25T09:04:47Z",
+      "closedAt": "2026-10-25T09:04:47Z",
       "draft": false
     },
     {
+      "id": 5003401373,
       "number": 16,
       "title": "DDM-009: Harden central read-only Actions scanning",
       "state": "closed",
@@ -1178,4 +1181,3 @@
     }
   ]
 }
-
